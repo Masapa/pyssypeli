@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class human : MonoBehaviour {
-
+	// asdfasdfasdffasd kommenttia
 	// Use this for initialization
 	void Start () {
 	
