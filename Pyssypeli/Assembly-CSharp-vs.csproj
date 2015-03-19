@@ -39,6 +39,7 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
+<<<<<<< HEAD
 	  <HintPath>D:/ProjectUnity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
@@ -46,14 +47,35 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+=======
+	  <HintPath>D:/Projects/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>D:/Projects/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+<<<<<<< HEAD
+     <Compile Include="Assets\MenuScript.cs" />
+>>>>>>> c77e46578aeb04ba41965f130e9853d2f191953c
      <Compile Include="Assets\scripts\Mappigene.cs" />
      <Compile Include="Assets\scripts\human.cs" />
      <Compile Include="Assets\scripts\seina.cs" />
      <Compile Include="Assets\scripts\testi.cs" />
+=======
+     <Compile Include="Assets\scripts\Character.cs" />
+     <Compile Include="Assets\scripts\Enemy.cs" />
+     <Compile Include="Assets\scripts\Game.cs" />
+     <Compile Include="Assets\scripts\Profile.cs" />
+>>>>>>> 89304dfb1147f15dc21bab235d63ec58df62a01d
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
+<<<<<<< HEAD
  <HintPath>D:/ProjectUnity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+=======
+ <HintPath>D:/Projects/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+>>>>>>> c77e46578aeb04ba41965f130e9853d2f191953c
  </Reference>
   </ItemGroup>
   <ItemGroup>
