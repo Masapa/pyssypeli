@@ -7,9 +7,14 @@ public class seina : MonoBehaviour {
 	public bool ala = false;
 	// Use this for initialization
 	void Start () {
-		if (!ala && kulma && !oikea) transform.Rotate (0, 0, 60)
-		if(oikea && kulma && !ala) transform.Rotate (0, 0, 60+60+60+60+60);
-
+		if (!ala && kulma && !oikea)
+			transform.Rotate (0, 0, 60);
+		if (oikea && kulma && !ala)
+			transform.Rotate (0, 0, 60 + 60 + 60 + 60 + 60);
+		if (ala && oikea && kulma)
+			transform.Rotate (0, 0, 60 + 60);
+		if (ala && !oikea && kulma)
+			transform.Rotate (0, 0, 60 + 60 + 60 + 60);
 		if (!kulma) {
 			transform.Rotate (0, 0, 0);
 		}

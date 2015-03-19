@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\MenuScript.cs" />
+>>>>>>> 93100ea4ec317b36d76e0cae83f43957cb764b27
      <Compile Include="Assets\scripts\Mappigene.cs" />
      <Compile Include="Assets\scripts\human.cs" />
      <Compile Include="Assets\scripts\seina.cs" />
