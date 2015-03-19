@@ -46,7 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
      <Compile Include="Assets\scripts\human.cs" />
+=======
+     <Compile Include="Assets\scripts\Mappigene.cs" />
+     <Compile Include="Assets\scripts\seina.cs" />
+>>>>>>> 2d8e9deb7fb7bea3371f27c8a5a2a8c970f3160e
      <Compile Include="Assets\scripts\testi.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
