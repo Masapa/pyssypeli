@@ -20,7 +20,7 @@ public class Mappigene : MonoBehaviour {
 		for (int i = 0; i<y; i++) {
 			testi.Add (new List<GameObject>());
 			nextx = 0;
-			for(a = 0;a<x;a++){
+			for(a = 0;a<x;a++){//asd
 				testi[i].Add ((GameObject)Instantiate(testii2));
 				if(i+1%3==1&&a%2 == 0){nextx = pituus;testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=pituus*1.5f;}
 				if(i+1%3==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += pituus*2;}
