@@ -4,29 +4,29 @@ using System.Collections;
 
 public class MenuScript : MonoBehaviour {
 
-	public Canvas QuitMenu;
+	public Canvas playMenu;
 	public Button startText;
 	public Button exitText;
 
 	// Use this for initialization
 	void Start () {
 
-		QuitMenu = QuitMenu.GetComponent<Canvas> ();
+		playMenu = playMenu.GetComponent<Canvas> ();
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
-		QuitMenu.enabled = false;
+		playMenu.enabled = false;
 	}
 
-	public void ExitPress()
+	public void playPress()
 	{
-		QuitMenu.enabled = true;
+		playMenu.enabled = true;
 		startText.enabled = false;
 		exitText.enabled = false;
 	}
 
 	public void NoPress()
 	{
-		QuitMenu.enabled = false;
+		playMenu.enabled = false;
 		startText.enabled = true;
 		exitText.enabled = true;
 
