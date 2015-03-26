@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class boss : human 
+public class monster : human 
 
 {
 
-	void Start () 
-	{
+	void Start () {
 	
 	}
 
-	void Update () 
-	{
+	void Update () {
 	
 	}
 }

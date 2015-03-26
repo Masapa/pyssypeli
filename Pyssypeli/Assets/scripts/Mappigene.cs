@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 public class Mappigene : MonoBehaviour {
-	public int x = 3;
-	public int y = 3;
+	public int x = 7;
+	public int y = 7;
 
 	List<List<GameObject>> testi = new List<List<GameObject>>();
 	public GameObject testii2;
 	//float pituus = ;
 	// Use this for initialization
-	int a;
+
 	float nextx;
 	float pituus;
 	float nexty;
@@ -17,25 +17,36 @@ public class Mappigene : MonoBehaviour {
 		pituus = testii2.transform.gameObject.GetComponent<SpriteRenderer> ().bounds.extents.x;
 		Debug.Log ("Vittu se on" + pituus);
 		nexty = 0;
+		bool eka = false;
 		for (int i = 0; i<y; i++) {
 			testi.Add (new List<GameObject>());
 			nextx = 0;
-			for(a = 0;a<x;a++){//asd
+			if((i +1)%4 == 2 || (i +1)%4 == 0){if(!eka){nextx = -61.51644f/2;eka = true;}else{nextx = 61.51644f/2; eka = false;}}
+			for(int a = 0;a<x;a++){//asd
 				testi[i].Add ((GameObject)Instantiate(testii2));
-				if(i+1%3==1&&a%2 == 0){nextx = pituus;testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=pituus*1.5f;}
-				if(i+1%3==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += pituus*2;}
+				bool skippi = true;
+				//ylä
+				if((i+1)%4==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=61.51644f;}
+				if((i+1)%4==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += 61.51644f;}
+				
+					//keski
+				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;testi[i][a].transform.position = new Vector2(-100f,-100f);} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;}}
 
-				if(i+1%3==2){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx +=pituus*4;}
+				//ala
+				if((i+1)%4==3&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=61.51644f;}
+				if((i+1)%4==3&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx += 61.51644f;}
 
+				/*
+					if((i+1)%2==0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;}
 
-				if(i+1%3==0&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=testi[i][a].transform.gameObject.GetComponent<SpriteRenderer> ().bounds.size.x-0.5f;}
-				if(i+1%3==0&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += testi[i][a].transform.gameObject.GetComponent<SpriteRenderer> ().bounds.size.x;}
-
+					if((i+1)%2==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=61.51644f;}
+					if((i+1)%2==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx += 61.51644f;}
+				}*/
 				
 			}
 
 
-			nexty -= pituus*1.5f;
+			nexty -= 53.52224f;
 		}
 
 	/*	testi.Add ((GameObject)Instantiate(testii2));

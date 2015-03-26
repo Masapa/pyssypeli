@@ -5,6 +5,7 @@ using System.Collections;
 public class MenuScript : MonoBehaviour {
 
 	public Canvas playMenu;
+	public Canvas exitMenu;
 	public Button startText;
 	public Button exitText;
 
@@ -12,9 +13,11 @@ public class MenuScript : MonoBehaviour {
 	void Start () {
 
 		playMenu = playMenu.GetComponent<Canvas> ();
+		exitMenu = exitMenu.GetComponent<Canvas> ();
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
 		playMenu.enabled = false;
+		exitMenu.enabled = false;
 	}
 
 	public void playPress()
@@ -24,9 +27,18 @@ public class MenuScript : MonoBehaviour {
 		exitText.enabled = false;
 	}
 
+	public void exitPress()
+	{
+		exitMenu.enabled = true;
+		startText.enabled = false;
+		exitText.enabled = false;
+
+	}
+
 	public void NoPress()
 	{
 		playMenu.enabled = false;
+		exitMenu.enabled = false;
 		startText.enabled = true;
 		exitText.enabled = true;
 
