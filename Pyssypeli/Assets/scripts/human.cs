@@ -11,8 +11,8 @@ public class human : MonoBehaviour
 		private int hp ;
 		private int energy ;
 		private int money ;
-		private int locationX ;
-		private int locationY ;
+		private float locationX ;
+		private float locationY ;
 		private int agility ;
 		private int constitution ;
 		private int luck ;
