@@ -30,7 +30,7 @@ public class Mappigene : MonoBehaviour {
 				if((i+1)%4==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += 61.51644f;}
 				
 					//keski
-				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;}}
+				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;testi[i][a].transform.position = new Vector2(-100f,-100f);} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;}}
 
 				//ala
 				if((i+1)%4==3&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=61.51644f;}
