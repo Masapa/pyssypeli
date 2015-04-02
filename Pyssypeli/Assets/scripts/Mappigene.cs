@@ -19,6 +19,50 @@ public class Mappigene : MonoBehaviour {
 	List<float> seinatpx = new List<float> ();
 	List<int> seinattila = new List<int>();
 	List<List<GameObject>> lattiat = new List<List<GameObject>>();
+
+	/* VITTU USKALLAKKI KOSKEE TÄHÄ MALLIIN OMG 
+	 * 
+	 * 	
+	public int[,] seintatesti = {
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2}
+	};
+
+	  */
+
+	public int[,] seintatesti = {
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{0,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2}
+	};
+	
+	
+	
 	void Start () {
 		pituus = testii2.transform.gameObject.GetComponent<SpriteRenderer> ().bounds.extents.x;
 		Debug.Log ("Vittu se on" + pituus);
@@ -27,8 +71,8 @@ public class Mappigene : MonoBehaviour {
 		bool eka = false;
 
 
-		x = x * 2;
-		y = y * 3;
+
+
 
 
 		for (int i = 0; i<y; i++) {
@@ -38,19 +82,19 @@ public class Mappigene : MonoBehaviour {
 			if((i +1)%4 == 2 || (i +1)%4 == 0){if(!eka){nextx = -salainennumero/2;eka = true;}else{nextx = salainennumero/2; eka = false;}}
 			for(int a = 0;a<x;a++){//asd
 				int randomia;
-				if(i == 0 || i == y-1 || a == 0 || a == x-1){randomia = 0;}else {randomia = Random.Range(0,seinatt.Count); }
-
-				testi[i].Add ((GameObject)Instantiate(seinatt[randomia]));
+				//if((i == 0 || i == y-1 || a == 0 || a == x-1)){randomia = 0;}else {randomia = Random.Range(0,seinatt.Count); }
+				if(seintatesti[i,a] == -1){seintatesti[i,a] = Random.Range(0,seinatt.Count);}
+				testi[i].Add ((GameObject)Instantiate(seinatt[seintatesti[i,a]]));
 				bool skippi = true;
 				//ylä
 				if((i+1)%4==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=salainennumero;}
 				if((i+1)%4==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += salainennumero;}
 				
-					//keski
-				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;testi[i][a].transform.position = new Vector2(-100f,-100f);} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);			lattiat[i].Add ((GameObject)Instantiate (testii3));
-						lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-salainennumero,nexty);nextx += salainennumero*2;
+				//keskitesti[i][a].transform.position = new Vector2(-100,-100);*/
+				if((i+1)%4==2 || (i+1)%4 == 0){if(a >=(x/2)){skippi = false;} testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);
+					nextx += salainennumero*2;if(skippi){lattiat[i].Add ((GameObject)Instantiate (testii3));lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-salainennumero,nexty);}
 
-					}}
+					}
 
 				//ala
 				if((i+1)%4==3&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=salainennumero;}
