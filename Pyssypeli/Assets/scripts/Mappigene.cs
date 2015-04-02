@@ -10,7 +10,7 @@ public class Mappigene : MonoBehaviour {
 	public GameObject testii3;
 	//float pituus = ;
 	// Use this for initialization
-
+	float salainennumero = 18.5f;
 	float nextx;
 	float pituus;
 	float nexty;
@@ -24,23 +24,23 @@ public class Mappigene : MonoBehaviour {
 			testi.Add (new List<GameObject>());
 			lattiat.Add (new List<GameObject>());
 			nextx = 0;
-			if((i +1)%4 == 2 || (i +1)%4 == 0){if(!eka){nextx = -61.51644f/2;eka = true;}else{nextx = 61.51644f/2; eka = false;}}
+			if((i +1)%4 == 2 || (i +1)%4 == 0){if(!eka){nextx = -salainennumero/2;eka = true;}else{nextx = salainennumero/2; eka = false;}}
 			for(int a = 0;a<x;a++){//asd
 				testi[i].Add ((GameObject)Instantiate(testii2));
 				bool skippi = true;
 				//ylä
-				if((i+1)%4==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=61.51644f;}
-				if((i+1)%4==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += 61.51644f;}
+				if((i+1)%4==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=salainennumero;}
+				if((i+1)%4==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx += salainennumero;}
 				
 					//keski
-				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;testi[i][a].transform.position = new Vector2(-100f,-100f);} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;
+				if((i+1)%4==2 || (i+1)%4 == 0){if(a >(x/2)){skippi = false;testi[i][a].transform.position = new Vector2(-100f,-100f);} if(skippi){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += salainennumero*2;
 						lattiat[i].Add ((GameObject)Instantiate (testii3));
-						lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-61.51644f,nexty);
+						lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-salainennumero,nexty);
 					}}
 
 				//ala
-				if((i+1)%4==3&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=61.51644f;}
-				if((i+1)%4==3&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx += 61.51644f;}
+				if((i+1)%4==3&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=salainennumero;}
+				if((i+1)%4==3&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx += salainennumero;}
 
 				/*
 					if((i+1)%2==0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);nextx += 61.51644f*2;}
@@ -52,7 +52,7 @@ public class Mappigene : MonoBehaviour {
 			}
 
 
-			nexty -= 53.52224f;
+			nexty -= 16.03f;
 		}
 
 	/*	testi.Add ((GameObject)Instantiate(testii2));
