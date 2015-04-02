@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class RotateToMouse : MonoBehaviour {
 
 	public enum SpriteRotation
@@ -21,10 +20,7 @@ public class RotateToMouse : MonoBehaviour {
 
 	private float _angle;
 
-
-
-
-
+	
 
 
 	void Start () 
