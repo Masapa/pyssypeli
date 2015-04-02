@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Bulletti : MonoBehaviour {
 
+	//public float Velocity;
+	//public float Damage;
+
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,6 +15,8 @@ public class Bulletti : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	Rigidbody2D.velocity = .transform
+	Rigidbody.velocity = Bullet.transform.rotation * Vector2.up*5;
+	
+	//Rigidbody2D.velocity = .transform
 	}
 }

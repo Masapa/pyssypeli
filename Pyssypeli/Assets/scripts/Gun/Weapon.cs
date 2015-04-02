@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour {
 	void Shoot()
 	{
 		Instantiate (MagicBullet, transform.position, Quaternion.identity);
-		Invoke ("Spawn", 3);
+
 	}
 		
 
