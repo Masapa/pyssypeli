@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		rb = GetComponent<Rigidbody2D> ();
+		//rb = GetComponent<Rigidbody2D> ();
 	}
 
 
@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (ylos) {
-			rb.AddForce (transform.up * speed);
+			rb.AddForce(transform.up * speed);
 			rb.drag = 1f;
 
 		}
