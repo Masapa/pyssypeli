@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
+	public float maxspeed = 100f;
 	public float speed;
 	public Rigidbody2D rb;
 	bool ylos = false;
@@ -49,8 +50,10 @@ public class Movement : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (ylos) {
+			if(rb.velocity.y <= maxspeed){
 			rb.AddForce(transform.up * speed);
-			rb.drag = 1f;
+				rb.drag = 1f;}
+
 
 		}
 
@@ -58,24 +61,31 @@ public class Movement : MonoBehaviour {
 		
 
 		if (alas) {
+			if(-rb.velocity.y <= maxspeed){
 			rb.AddForce (-transform.up * speed);
-			rb.drag = 1f;
+				rb.drag = 1f;}
+
 		}
 
 
 		
 
 		if (oikea) {
+			if(rb.velocity.x <= maxspeed){
 			rb.AddForce (transform.right * speed);
-			rb.drag = 1f;
+					rb.drag = 1f;}
+			
 		}
 
 
 
 		if (vasen) {
+			if(-rb.velocity.x <= maxspeed){
 			rb.AddForce (-transform.right * speed);
 			rb.drag = 1f;
-		}
+					}
+
+			}
 
 
 
@@ -83,3 +93,4 @@ public class Movement : MonoBehaviour {
 		}
 	}
 }
+	
