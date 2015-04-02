@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		//rb = GetComponent<Rigidbody2D> ();
+		rb = GetComponent<Rigidbody2D> ();
 	}
 
 
