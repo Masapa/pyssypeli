@@ -6,6 +6,7 @@ public class Mappigene : MonoBehaviour {
 	public int y = 7;
 
 	List<List<GameObject>> testi = new List<List<GameObject>>();
+	public List<GameObject> seinatt = new List<GameObject> ();
 	public GameObject testii2;
 	public GameObject testii3;
 	//float pituus = ;
@@ -26,7 +27,10 @@ public class Mappigene : MonoBehaviour {
 			nextx = 0;
 			if((i +1)%4 == 2 || (i +1)%4 == 0){if(!eka){nextx = -salainennumero/2;eka = true;}else{nextx = salainennumero/2; eka = false;}}
 			for(int a = 0;a<x;a++){//asd
-				testi[i].Add ((GameObject)Instantiate(testii2));
+				int randomia = Random.Range(0,seinatt.Count);
+				if(i == 0 || i == y-1 || a == 0 || a == x-1){randomia = 0;}
+
+				testi[i].Add ((GameObject)Instantiate(seinatt[randomia]));
 				bool skippi = true;
 				//ylä
 				if((i+1)%4==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx +=salainennumero;}
