@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if (ylos) {
-			rb.AddForce (transform.up * speed);
+			rb.AddForce(transform.up * speed);
 			rb.drag = 1f;
 
 		}
