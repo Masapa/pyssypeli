@@ -46,6 +46,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		// The player is now dead.
 		playerDead = true;
+
 	}
 	
 	
