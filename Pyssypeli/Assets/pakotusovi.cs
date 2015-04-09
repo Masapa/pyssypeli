@@ -24,4 +24,6 @@ public class pakotusovi : MonoBehaviour {
 		rb.transform.rotation = alkutila;
 	}
 	}
+
+	public void lukitse(){vittuovi = true;}
 }
