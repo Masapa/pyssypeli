@@ -3,31 +3,26 @@ using System.Collections;
 
 public class MoveTo : MonoBehaviour {
 
-	public Transform[] Points;
-	private int destPoint = 0;
-	private NavMeshAgent agent;
-
-	void Start()
-	{
-		agent = GetComponent<NavMeshAgent>();
-		agent.autoBraking = false;
-
-		GotoNextPoint ();
+	public Transform Target;
+	private GameObject Enemy;
+	private GameObject Player;
+	private float Range;
+	public float Speed;
+	Rigidbody2D enemi;
+	
+	
+	// Use this for initialization
+	void Start () {
+		Enemy = GameObject.FindGameObjectWithTag ("Enemy");
+		Player = GameObject.FindGameObjectWithTag ("Player");
+		enemi = GetComponent<Rigidbody2D> ();
 	}
-
-	void GotoNextPoint()
-	{
-		if (Points.Length == 0)
-			return;
-
-		agent.destination = Points [destPoint].position;
-
-		destPoint = (destPoint + 1) % Points.Length;
-	}
-
-	void Update()
-	{
-		if (agent.remainingDistance < 0.5f)
-			GotoNextPoint ();
+	
+	// Update is called once per frame
+	void Update () {
+		Range = Vector2.Distance (Enemy.transform.position, Player.transform.position);
+		if (Range <= 15f) {
+			transform.Translate(Vector2.MoveTowards (Enemy.transform.position, Player.transform.position, Range) * Speed * Time.deltaTime);
+		}
 	}
 }
