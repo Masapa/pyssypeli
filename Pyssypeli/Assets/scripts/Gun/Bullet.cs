@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		Vector2 pos = transform.position;
+
 
 		//Vector2 velocity = new Vector3 (0, Speed * Time.deltaTime);
 		rb.velocity = rb.transform.rotation * Vector2.up * Speed;
