@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bulletti : MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
-	//public float Velocity;
-	//public float Damage;
+	public float Speed = 8f;
+	Rigidbody2D rb;
+	void Start(){
+		rb = GetComponent<Rigidbody2D> ();
 
 
-
-	// Use this for initialization
-	void Start () {
-	
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-	Rigidbody.velocity = Bullet.transform.rotation * Vector2.up*5;
-	
-	//Rigidbody2D.velocity = .transform
+	void FixedUpdate () 
+	{
+		Vector2 pos = transform.position;
+
+		//Vector2 velocity = new Vector3 (0, Speed * Time.deltaTime);
+		rb.velocity = rb.transform.rotation * Vector2.up * Speed;
+
+
+		//pos += transform.rotation * velocity;
+
+		//transform.position = pos;
 	}
 }
