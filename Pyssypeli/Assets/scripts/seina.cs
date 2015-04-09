@@ -7,9 +7,12 @@ public class seina : MonoBehaviour {
 	public bool ala = false;
 	public float x;
 	public float y;
+	Rigidbody2D rb2;
 	Vector3 testiii;
 	// Use this for initialization
 	void Start () {
+
+		rb2 = GetComponent<Rigidbody2D> ();
 	/*	if (ala && kulma && !oikea)
 			transform.Rotate (0, 0, -30);
 		if (ala&&oikea && kulma )
@@ -36,6 +39,8 @@ public class seina : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//rb2.isKinematic = true;
+		rb2.fixedAngle = true;
 		x = transform.position.x;
 		y = transform.position.y;
 	}

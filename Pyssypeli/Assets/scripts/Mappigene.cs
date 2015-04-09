@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 public class Mappigene : MonoBehaviour {
-	public int x = 7;
-	public int y = 7;
+	 int x = 15;
+	 int y = 15;
 
 	List<List<GameObject>> testi = new List<List<GameObject>>();
 	public List<GameObject> seinatt = new List<GameObject> ();
@@ -40,6 +40,9 @@ public class Mappigene : MonoBehaviour {
 		{0,0,0,0,0,0,0,0,2,2,2,2,2,2,2},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2}
 	};
+
+
+	public int[,] lattiatesti
 
 	  */
 

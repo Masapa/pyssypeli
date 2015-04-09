@@ -25,7 +25,6 @@ public class RotateToMouse : MonoBehaviour {
 
 	void Start () 
 	{
-
 		_transform = transform;
 
 		if (!currentCamera)
