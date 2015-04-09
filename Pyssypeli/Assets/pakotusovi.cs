@@ -12,16 +12,20 @@ public class pakotusovi : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+
 		if (!vittuovi) {
 			transform.rotation = rb.transform.rotation;
 			//rb.isKinematic = false;
 			rb.fixedAngle = false;
 		} else{
+			//Debug.Log (rb.transform.rotation.x+ " " + rb.transform.rotation.y+ " " + rb.transform.rotation.z+ " " + rb.transform.rotation.w + " " + alkutila.z);
+			if(rb.transform.rotation.z > (alkutila.z - 0.05f) && rb.transform.rotation.z < alkutila.z +0.05f){
 			//rb.isKinematic = true;
+				//Debug.Log ("Kävin näin pitkällä :o");
 			rb.fixedAngle = true;
 			transform.rotation = alkutila;
-		rb.transform.rotation = alkutila;
+				rb.transform.rotation = alkutila;}
 	}
 	}
 
