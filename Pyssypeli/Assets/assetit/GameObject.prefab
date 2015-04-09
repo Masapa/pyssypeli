@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9421f9e394f2af4db4ff9456ab6a7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 7
-  y: 7
+  x: 15
+  y: 15
   seinatt: []
   testii2: {fileID: 182096, guid: bf210715ca99eb244a101c35bfae99c4, type: 2}
   testii3: {fileID: 189414, guid: 3a52359ff0d20b14bb998b5b8c06f42e, type: 2}

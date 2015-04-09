@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Seina
+  - Enemy
   layers:
   - Default
   - TransparentFX
