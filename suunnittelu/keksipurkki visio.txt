@@ -1,0 +1,30 @@
+Nikola Teslan keksipurkki!!
+
+
+Kakkaa:
+
+-nikola tesla oli aikansa suuri tiedemies ja teki monia läpimurtoja liittyen
+ vaihtosähköön ja robotiikkaan. Hän oli epäsosiaalinen autisti ja eleli vain
+ kotonansa. viimeiset vuodet elämästään hän linnottautui kotiinsa ja söi ainoastaan
+ keksejä ja maitoa tosin meidän pelissämme hen on vieläkin elossa. 
+ keksipurkki on todella arvokas, superjulkkiksen henkilökohtainen esine!!!!!!!
+
+
+Miljöö:
+
+-nikkarointipajan ja kartanon lapsonen: kupariputkia, vaaleaa tiiliseinää, isoja viktorian aikaisia ikkunoita
+ paikkapaikoin rautalattiaa, pääosin puuta
+
+Ansoja:
+
+-teslakoilitolpat joitten välillä väliaikakaisesti sähkö (sattuuu D:)
+-alue jolle mennessä ottaa damagea (voidaan spritettää tuleksi tai säköksi tai kaasuksi mielen mukaan)
+-ansa -lanka, -laatta, -nappi joka avaa maasta luukun joka spawnaa robotteja
+
+
+Vihollisia:
+
+-Isoja muskeliroboja jotkaa tulevat pieksemään pelaajaa nyrkeillä
+-pikku roboja renkailla jotka on nopeita, pitävät etäisyyttä pelaajasta ja ampuvat kaukaa
+-tavallinen robotti
+-maaha pultattu automaattiminiguni joka ampuu jos pelaaja tulee näkyville, piippu kääntyy hitaasti
