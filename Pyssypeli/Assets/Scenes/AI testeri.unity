@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1461134949}
-  moveSpeed: 2
+  moveSpeed: 6
   rotationSpeed: 6
   maxdistance: 5
 --- !u!1 &1826351445
@@ -334,7 +334,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.37156773
+  orthographic size: 13.1265192
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -353,7 +353,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1826351445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.5999985, y: -21.7999992, z: -10}
+  m_LocalPosition: {x: .5, y: -1.39999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
