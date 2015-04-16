@@ -4,14 +4,15 @@ using System.Collections;
 public class CollisionD : MonoBehaviour {
 	
 
-	public float hp = 10;
+	public float health = 10;					//
 	public BulletScript bullet;
 
 	void OnTriggerEnter2D(){
-		hp -= bullet.Damage;
+		health -= bullet.Damage;
 	}
 	
 	void Death(){
+		if (health <= 0)
 		Destroy (gameObject);
 	}
 
@@ -21,8 +22,6 @@ public class CollisionD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (hp <= 0) {
 			Death ();
-		}
 	}
 }

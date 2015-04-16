@@ -22,28 +22,27 @@ public class human : MonoBehaviour
 		private bool isHostile ;
 
 	public BulletScript bullet;
-	public float hp = 6;
+	public float health = 6;
 
 	void OnTriggerEnter2D(){
-		hp -= bullet.Damage;
+		health -= bullet.Damage;
 	}
 
 
 	void Death(){
+		if (health <= 0)
 		Destroy (gameObject);
 	}
 	
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
-		//GameObject Bullet = GameObject.Find ("Bullet");
-		//Bullet damage = Bullet.GetComponent<Bullet> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (hp <= 0)
 			Death ();
 	}
 	
