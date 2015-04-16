@@ -3,9 +3,9 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
-	public float Speed = 8f;
-	public float Damage = 2f;
-	private float Varma = 2;
+	public float Speed = 8f;		//panoksen lentonopeus
+	public float Damage = 2f;		//panoksen vahinko
+	private float Siivous = 2;		//aika jolloin panos katoaa (varmuuden vuoksi)
 	Rigidbody2D rb;
 
 	void OnTriggerEnter2D(){
@@ -18,10 +18,10 @@ public class BulletScript : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
-		Varma -= Time.deltaTime;
-		if (Varma < 0) {
+		Siivous -= Time.deltaTime;
+		if (Siivous < 0) {
 			Destroy (gameObject);
 		}
-		rb.velocity = rb.transform.rotation * Vector2.up * Speed;
+		rb.velocity = rb.transform.rotation * Vector2.up * Speed;		//antaa luodille vauhdin ja oikean suunnan
 	}
 }
