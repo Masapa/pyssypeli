@@ -7,6 +7,8 @@ public class Mappigene : MonoBehaviour {
 
 	List<List<GameObject>> testi = new List<List<GameObject>>();
 	public List<GameObject> seinatt = new List<GameObject> ();
+	public List<GameObject> lattiatt = new List<GameObject> ();
+	List<List<GameObject>> lattiat = new List<List<GameObject>>();
 	public GameObject testii2;
 	public GameObject testii3;
 	//float pituus = ;
@@ -18,7 +20,7 @@ public class Mappigene : MonoBehaviour {
 	List<float> seinatpy = new List<float> ();
 	List<float> seinatpx = new List<float> ();
 	List<int> seinattila = new List<int>();
-	List<List<GameObject>> lattiat = new List<List<GameObject>>();
+
 
 	/* VITTU USKALLAKKI KOSKEE TÄHÄ MALLIIN OMG 
 	 * 
@@ -41,10 +43,36 @@ public class Mappigene : MonoBehaviour {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2}
 	};
 
+	public int[,] lattiatesti = {
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
+		{-1,-1,-1,-1,-1,-1,-1},
 
-	public int[,] lattiatesti
-
+	};
 	  */
+
+
+	public int[,] lattiatesti = {
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+		{-1,-1,-1,-1,-1,-1,-1,0,2,2,2,2,2,2,2},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2}
+	};
 
 	public int[,] seintatesti = {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
@@ -75,10 +103,12 @@ public class Mappigene : MonoBehaviour {
 
 
 
-
+		int lattiai = 0;
+	
 
 
 		for (int i = 0; i<y; i++) {
+			int lattiaa = 0;
 			testi.Add (new List<GameObject>());
 			lattiat.Add (new List<GameObject>());
 			nextx = 0;
@@ -87,6 +117,8 @@ public class Mappigene : MonoBehaviour {
 				int randomia;
 				//if((i == 0 || i == y-1 || a == 0 || a == x-1)){randomia = 0;}else {randomia = Random.Range(0,seinatt.Count); }
 				if(seintatesti[i,a] == -1){seintatesti[i,a] = Random.Range(0,seinatt.Count);}
+				Debug.Log ("eka on: "+lattiai+" toka on "+lattiaa);
+				if(lattiatesti[lattiai,lattiaa] == -1){lattiatesti[lattiai,lattiaa] = Random.Range(0,lattiatt.Count);}
 				testi[i].Add ((GameObject)Instantiate(seinatt[seintatesti[i,a]]));
 				bool skippi = true;
 				//ylä
@@ -95,7 +127,7 @@ public class Mappigene : MonoBehaviour {
 				
 				//keskitesti[i][a].transform.position = new Vector2(-100,-100);*/
 				if((i+1)%4==2 || (i+1)%4 == 0){if(a >=(x/2)){skippi = false;} testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,90);
-					nextx += salainennumero*2;if(skippi){lattiat[i].Add ((GameObject)Instantiate (testii3));lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-salainennumero,nexty);}
+					nextx += salainennumero*2;if(skippi){if(a < 7){lattiat[i].Add ((GameObject)Instantiate (lattiatt[lattiatesti[lattiai,lattiaa]]));lattiat[i][testi[i].Count-1].transform.position = new Vector2(nextx-salainennumero,nexty);lattiaa++;}}
 
 					}
 
@@ -109,9 +141,9 @@ public class Mappigene : MonoBehaviour {
 					if((i+1)%2==1&&a%2 == 0){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,180-30);nextx +=61.51644f;}
 					if((i+1)%2==1&&a%2 == 1){testi[i][a].transform.position = new Vector2(nextx,nexty); testi[i][a].transform.Rotate(0,0,30);nextx += 61.51644f;}
 				}*/
-				
-			}
 
+			}
+			if((i+1)%4 == 2||(i+1)%4 == 0){lattiai++;}
 
 			nexty -= 16.03f;
 		} 
