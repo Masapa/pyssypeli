@@ -4,7 +4,7 @@ using System.Collections;
 public class CollisionD : MonoBehaviour {
 	
 
-	public float health = 10;					//
+	public float health = 10;
 	public BulletScript bullet;
 
 	void OnTriggerEnter2D(){
