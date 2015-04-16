@@ -6,7 +6,7 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		bullshit ();
-	
+		ballshit ();
 	
 	}
 	// Use this for initialization
@@ -21,6 +21,11 @@ public partial class Player : MonoBehaviour {
 
 		if(Input.GetButtonDown("Fire1")){
 		TakeDamage (10);
+			Shoot (1);
+		}
+
+		if(Input.GetButtonDown("Reload")){
+			Reload2();
 		}
 	
 	}
