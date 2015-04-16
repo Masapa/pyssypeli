@@ -12,12 +12,11 @@ public class BulletScript : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void Start(){
+	void Star(){
 		rb = GetComponent<Rigidbody2D> ();
 	}
 
-	void FixedUpdate () 
-	{
+	void FixedUpdate (){
 		Siivous -= Time.deltaTime;
 		if (Siivous < 0) {
 			Destroy (gameObject);
