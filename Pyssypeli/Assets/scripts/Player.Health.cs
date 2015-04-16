@@ -40,6 +40,7 @@ public partial class Player : MonoBehaviour {
 	void PlayerDying(){
 		// The player is now dead.
 		playerDead = true;
+
 	}
 	
 	

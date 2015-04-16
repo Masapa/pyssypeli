@@ -8,7 +8,6 @@ public class human : MonoBehaviour
 		private string characterClass ;
 		private int level ;
 		private string characterName ;
-		private int hp ;
 		private int energy ;
 		private int money ;
 		private float locationX ;
@@ -21,9 +20,22 @@ public class human : MonoBehaviour
 		private string[] inventory ;
 		private bool isAlive ;
 		private bool isHostile ;
+
+	public BulletScript bullet;
+	public float health = 6;
+
+	void OnTriggerEnter2D(){
+		health -= bullet.Damage;
+	}
+
+
+	void Death(){
+		if (health <= 0)
+		Destroy (gameObject);
+	}
 	
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 
 	}
@@ -31,7 +43,7 @@ public class human : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	  
+			Death ();
 	}
 	
 	public void moveUp()

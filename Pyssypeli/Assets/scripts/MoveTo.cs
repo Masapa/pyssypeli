@@ -3,31 +3,50 @@ using System.Collections;
 
 public class MoveTo : MonoBehaviour {
 
-	public Transform[] Points;
-	private int destPoint = 0;
-	private NavMeshAgent agent;
+	public Transform Target;
+	public int moveSpeed;
+	public int rotationSpeed;
+	public int maxdistance;
 
-	void Start()
+	Rigidbody2D tmp;
+	private Transform myTransform;
+	
+
+	void Awake()
 	{
-		agent = GetComponent<NavMeshAgent>();
-		agent.autoBraking = false;
-
-		GotoNextPoint ();
+		myTransform = transform;
 	}
+	
+	// Use this for initialization
+	void Start () {
+		GameObject go = GameObject.FindGameObjectWithTag ("Player");
 
-	void GotoNextPoint()
-	{
-		if (Points.Length == 0)
-			return;
+		Target = go.transform;
+		tmp = GetComponent<Rigidbody2D> ();
+		maxdistance = 10;
 
-		agent.destination = Points [destPoint].position;
-
-		destPoint = (destPoint + 1) % Points.Length;
 	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+		Debug.DrawLine(Target.position, myTransform.position, Color.red);
 
-	void Update()
-	{
-		if (agent.remainingDistance < 0.5f)
-			GotoNextPoint ();
+		Vector3 dir = Target.position - myTransform.position; 
+		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
+
+		Quaternion q = Quaternion.AngleAxis(angle-90, Vector3.forward); 
+		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
+
+		if (Vector3.Distance (Target.position, myTransform.position) > (maxdistance + 1f)) {
+			tmp.velocity = tmp.transform.rotation * Vector2.up * moveSpeed;
+
+
+		} else if (Vector3.Distance (Target.position, myTransform.position) < (maxdistance - 1f)) {
+			tmp.velocity = tmp.transform.rotation * -Vector2.up * moveSpeed * 0.75f;
+
+		}
+		else {
+			tmp.velocity = Vector2.zero;
+		}
 	}
 }
