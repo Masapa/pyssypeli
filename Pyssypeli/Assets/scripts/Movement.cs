@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
 
 	void Update(){
 
+
 		if (Input.GetKeyDown ("w")) {
 			ylos = true;
 		}

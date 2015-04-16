@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 	private EnemySight enemySight;                          // Reference to the EnemySight script.
 	private NavMeshAgent nav;                               // Reference to the nav mesh agent.
 	private Transform player;                               // Reference to the player's transform.
-	private PlayerHealth playerHealth;                      // Reference to the PlayerHealth script.
+	private Player playerHealth;                      // Reference to the PlayerHealth script.
 	private LastPlayerSighting lastPlayerSighting;          // Reference to the last global sighting of the player.
 	private float chaseTimer;                               // A timer for the chaseWaitTime.
 	private float patrolTimer;                              // A timer for the patrolWaitTime.
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
 		enemySight = GetComponent<EnemySight>();
 		nav = GetComponent<NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag(Tags.player).transform;
-		playerHealth = player.GetComponent<PlayerHealth>();
+		playerHealth = player.GetComponent<Player>();
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
 	}
 	
