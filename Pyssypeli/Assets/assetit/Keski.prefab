@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21267336}
   - 114: {fileID: 11404616}
   - 50: {fileID: 5067820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: keskivasen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 212: {fileID: 21253448}
   - 114: {fileID: 11458918}
   - 50: {fileID: 5074980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: keskioikea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Keski
   m_TagString: Untagged
   m_Icon: {fileID: 0}

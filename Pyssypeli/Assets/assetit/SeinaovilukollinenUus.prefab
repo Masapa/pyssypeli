@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 447236}
   - 114: {fileID: 11474712}
   - 61: {fileID: 6171092}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: lukitusAlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,9 +30,9 @@ GameObject:
   - 50: {fileID: 5029926}
   - 61: {fileID: 6152954}
   - 61: {fileID: 6119702}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SeinaovilukollinenUus
-  m_TagString: Seina
+  m_TagString: HardObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ GameObject:
   - 61: {fileID: 6168374}
   - 231: {fileID: 23104148}
   - 114: {fileID: 11460894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ovi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433384}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,6 +9,11 @@ public partial class Player : MonoBehaviour {
 		ballshit ();
 	
 	}
+
+	void OnTriggerEnter2D(){
+		Debug.Log ("KUOLIT AHAHAH VITTU!");
+	}
+
 	// Use this for initialization
 	void Start () {
 	
