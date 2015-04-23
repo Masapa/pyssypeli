@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11438662}
   - 50: {fileID: 5060672}
   - 61: {fileID: 6173484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: seina
   m_TagString: Seina
   m_Icon: {fileID: 0}

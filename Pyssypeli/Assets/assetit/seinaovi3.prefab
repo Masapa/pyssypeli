@@ -13,7 +13,7 @@ GameObject:
   - 233: {fileID: 23360200}
   - 61: {fileID: 6179530}
   - 231: {fileID: 23118148}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ovi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   - 61: {fileID: 6141954}
   - 61: {fileID: 6145284}
   - 114: {fileID: 11442010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: seinaovi3
   m_TagString: Seina
   m_Icon: {fileID: 0}

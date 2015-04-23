@@ -129,7 +129,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f781a25f3acb474bb336903a4f1aba6, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &733966938 stripped
+--- !u!4 &733966938
 Transform:
   m_PrefabParentObject: {fileID: 464450, guid: 3f781a25f3acb474bb336903a4f1aba6, type: 2}
   m_PrefabInternal: {fileID: 251069437}
@@ -182,6 +182,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11407844, guid: a922e461da051594c921bdaf9d520358, type: 2}
+      propertyPath: lattiatt.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 416706, guid: a922e461da051594c921bdaf9d520358, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -214,6 +218,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11407844, guid: a922e461da051594c921bdaf9d520358, type: 2}
+      propertyPath: lattiatt.Array.data[5]
+      value: 
+      objectReference: {fileID: 105352, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a922e461da051594c921bdaf9d520358, type: 2}
   m_IsPrefabParent: 0
@@ -243,7 +251,7 @@ HingeJoint2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229161512}
   m_Enabled: 1
-  m_EnableCollision: 0
+  m_CollideConnected: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 7.5199995, y: .379999995}
@@ -320,7 +328,49 @@ Transform:
   m_LocalScale: {x: .25, y: .25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
+--- !u!1001 &1572515033
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 22.1295013
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -26.8853683
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ed4ff40c5197d3441b19666a9a7d639e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1826351445
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1826351451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +498,7 @@ HingeJoint2D:
   m_PrefabInternal: {fileID: 756392762}
   m_GameObject: {fileID: 1905787065}
   m_Enabled: 1
-  m_EnableCollision: 0
+  m_CollideConnected: 0
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 4.93064308, y: -2.57135701}
@@ -514,7 +564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!61 &1905787070
 BoxCollider2D:
   m_ObjectHideFlags: 0
