@@ -5,11 +5,19 @@ public class BulletScript : MonoBehaviour {
 
 	public float Speed = 8f;		//panoksen lentonopeus
 	public float Damage = 2f;		//panoksen vahinko
+	public float Amount = 0f;
 	private float Siivous = 2;		//aika jolloin panos katoaa (varmuuden vuoksi)
 	Rigidbody2D rb;
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Player" || other.tag == "HardObject" || other.tag == "Seina" || other.tag == "Enemy"){
+		if(other.tag == "Player" || other.tag == "Enemy"){
+			Destroy (gameObject);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		Debug.Log (other.collider.tag);
+		if (other.collider.tag == "HardObject" || other.collider.tag == "Seina") {
 			Destroy (gameObject);
 		}
 	}

@@ -16,7 +16,7 @@ public partial class Player : MonoBehaviour {
 	private Movement playerMovement;              		// Reference to the player movement script.
 	private HashIDs hash;                               // Reference to the HashIDs.             
 	private LastPlayerSighting lastPlayerSighting;      // Reference to the LastPlayerSighting script.
-	private float timer;                                // A timer for counting to the reset of the level once the player is dead.
+	private float timer;		                        // A timer for counting to the reset of the level once the player is dead.
 	private bool damaged;
 	private bool playerDead;                            // A bool to show if the player is dead or not.
 	
@@ -37,7 +37,7 @@ public partial class Player : MonoBehaviour {
 	
 	
 	
-	void PlayerDying(){
+	void PlayerDied(){
 		// The player is now dead.
 		playerDead = true;
 
