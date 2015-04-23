@@ -10,7 +10,7 @@ public class MoveTo : MonoBehaviour {
 
 	Rigidbody2D tmp;
 	private Transform myTransform;
-	
+	private Player health;
 
 	void Awake()
 	{
@@ -29,7 +29,7 @@ public class MoveTo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Debug.DrawLine(Target.position, myTransform.position, Color.red);
+
 
 		Vector3 dir = Target.position - myTransform.position; 
 		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
