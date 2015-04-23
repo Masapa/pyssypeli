@@ -37,7 +37,7 @@ GameObject:
   - 114: {fileID: 11478098}
   m_Layer: 11
   m_Name: seinaovi6
-  m_TagString: Seina
+  m_TagString: HardObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
