@@ -9,6 +9,7 @@ TagManager:
   - HardObject
   - SoftObject
   - Player
+  - Gun
   layers:
   - Default
   - TransparentFX
