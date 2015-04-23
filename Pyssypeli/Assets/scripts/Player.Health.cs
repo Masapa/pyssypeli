@@ -10,7 +10,7 @@ public partial class Player : MonoBehaviour {
 	public Image damageImage;
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color (1f, 0f, 0f, 0.1f);
-	
+	public BulletScript bullet;
 	
 	public float resetAfterDeathTime = 5f;              // How much time from the player dying to the level reseting.                    
 	private Movement playerMovement;              		// Reference to the player movement script.
@@ -19,22 +19,16 @@ public partial class Player : MonoBehaviour {
 	private float timer;		                        // A timer for counting to the reset of the level once the player is dead.
 	private bool damaged;
 	private bool playerDead;                            // A bool to show if the player is dead or not.
-	
-	
-	
-	void bullshit ()
-	{
-		/*
-		// Setting up the references.
-		playerMovement = GetComponent<Movement>();
-		hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
-		
-		// setting starting health to the player*/
+
+
+	void StartLife (){
 		health = startingHealth;
 	}
 
-	
+	void DeathCheck (){
+		if (health <= 0)
+			playerDead = true;
+	}
 	
 	
 	void PlayerDied(){
