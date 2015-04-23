@@ -14,7 +14,7 @@ GameObject:
   - 61: {fileID: 6186598}
   - 231: {fileID: 23124838}
   - 114: {fileID: 11478462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ovi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,9 +35,9 @@ GameObject:
   - 61: {fileID: 6140730}
   - 61: {fileID: 6162446}
   - 114: {fileID: 11478098}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: seinaovi6
-  m_TagString: Seina
+  m_TagString: HardObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

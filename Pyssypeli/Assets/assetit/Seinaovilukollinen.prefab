@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490668}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 61: {fileID: 6175902}
   - 231: {fileID: 23157854}
   - 114: {fileID: 11425362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ovi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,9 +50,9 @@ GameObject:
   - 61: {fileID: 6112302}
   - 61: {fileID: 6160938}
   - 114: {fileID: 11465188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Seinaovilukollinen
-  m_TagString: Seina
+  m_TagString: HardObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

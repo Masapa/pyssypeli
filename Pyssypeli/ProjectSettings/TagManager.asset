@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Seina
   - Enemy
+  - HardObject
+  - SoftObject
+  - Player
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - NPC
   - HardObject
   - SoftObject
-  - 
+  - Background
   - 
   - 
   - 

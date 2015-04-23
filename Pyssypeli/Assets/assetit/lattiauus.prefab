@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487582}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: lattiauus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 497902}
   - 212: {fileID: 21231206}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: lattiaa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
