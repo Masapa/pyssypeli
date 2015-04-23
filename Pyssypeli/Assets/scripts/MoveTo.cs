@@ -7,7 +7,7 @@ public class MoveTo : MonoBehaviour {
 	public int moveSpeed;
 	public int rotationSpeed;
 	public int maxdistance;
-
+	bool seuraa = false;
 	Rigidbody2D tmp;
 	private Transform myTransform;
 	private Player health;
@@ -26,27 +26,56 @@ public class MoveTo : MonoBehaviour {
 		maxdistance = 10;
 
 	}
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Player") {
+		
+			seuraa = true;
+		
+		}
 	
+	
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if (other.tag == "Player") {
+			seuraa = false;
+		}
+	}
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		if (seuraa) {
+			Chase ();
+		}
 
+		if ((Vector3.Distance (Target.position, myTransform.position) == maxdistance)) {
+			Shooting ();
+		}
+	}
+
+	void Chase()
+	{
 		Vector3 dir = Target.position - myTransform.position; 
 		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
-
+		
 		Quaternion q = Quaternion.AngleAxis(angle-90, Vector3.forward); 
 		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
-
+		
 		if (Vector3.Distance (Target.position, myTransform.position) > (maxdistance + 1f)) {
 			tmp.velocity = tmp.transform.rotation * Vector2.up * moveSpeed;
-
-
+			
+			
 		} else if (Vector3.Distance (Target.position, myTransform.position) < (maxdistance - 1f)) {
 			tmp.velocity = tmp.transform.rotation * -Vector2.up * moveSpeed * 0.75f;
-
+			
 		}
 		else {
 			tmp.velocity = Vector2.zero;
 		}
+
+	}
+
+	void Shooting()
+	{
+
 	}
 }
