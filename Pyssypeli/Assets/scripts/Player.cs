@@ -5,15 +5,13 @@ using UnityEngine.UI;
 public partial class Player : MonoBehaviour {
 
 	void Awake(){
-		bullshit ();
-		ballshit ();
-	
+		StartLife ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" || other.tag == "Bullet") {
+			TakeDamage(11);
 			Debug.Log ("KUOLIT AHAHAH VITTU!");
-			PlayerDied();
 		}
 	}
 
@@ -26,6 +24,6 @@ public partial class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		DeathCheck ();
 	}
 }
