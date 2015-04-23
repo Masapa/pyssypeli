@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class deaponControl : MonoBehaviour {
+public class Weapon : MonoBehaviour {
 
 	public GameObject Bullet;
 	public float fireRate = 0;
@@ -12,15 +12,16 @@ public class deaponControl : MonoBehaviour {
 	float timeToFire = 0;
 	Transform firePoint;
 
-	void SetGuns(){
+	void Start(){
 		Mag = Magazine;
 	}
 
-	void FindGun(){
-
+	void Shoot(){
+		Vector3 pos = transform.position;
+		Instantiate (Bullet, transform.position, transform.rotation);
 	}
-
-	void ShootLoad(){
+	
+	void Update(){
 
 		Reloader -= Time.deltaTime;
 		
@@ -38,26 +39,17 @@ public class deaponControl : MonoBehaviour {
 		
 		if (fireRate == 0 && Mag > 0 && Reloader < -.5) {
 			if (Input.GetButtonDown ("Fire1")) {
-
-				Vector3 pos = transform.position;
-				Instantiate (Bullet, transform.position, transform.rotation);
-
+				Shoot();
 				Mag--;
 			}
+
 		} else {
 			
 			if (Input.GetButton ("Fire1") && Time.time > timeToFire && Mag > 0 && Reloader < -.5) {
 				timeToFire = Time.time + 1 / fireRate;
-				Shoot ();
+				Shoot();
 				Mag--;
 			}
 		}
 	}
-
-
-	void Shoot(){
-	}
-		
-
-	
 }
