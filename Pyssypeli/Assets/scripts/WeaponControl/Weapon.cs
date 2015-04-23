@@ -5,9 +5,9 @@ public class Weapon : MonoBehaviour {
 
 	public GameObject Bullet;
 	public float fireRate = 0;
-	public float Magazine = 20;
+	public int Magazine = 20;
 	public float RTime = 2f;
-	public float Mag = 0;
+	public int Mag = 0;
 	float Reloader = -1;
 	float timeToFire = 0;
 	Transform firePoint;

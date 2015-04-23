@@ -4,37 +4,38 @@ using UnityEngine.UI;
 
 public partial class Player : MonoBehaviour {
 
+	Weapon Gun;
 
-	public int StartingAmmo = 12;
-	public int CurrentAmmo;
+	public int MaxAmmo = 12;
+	public int CurrentAmmo = 20;
 
 	public Text	currentAmmo;				
-	public Text startingAmmo;
+	public Text maxAmmo;
 
-
-	void ballshit(){
-		CurrentAmmo = StartingAmmo;
+	void StartWeapon(){
+		Gun = (Weapon)this.GetComponentInChildren<Weapon> ();;
 	}
 
-	public void Shoot (int amount)
+	void ballshit(){
+		MaxAmmo = MaxAmmo;
+		CurrentAmmo = MaxAmmo;
+	}
+
+	void AmmoCheck ()
 	{
 
-		damaged = true;
-		
-		if (CurrentAmmo > 0) {
-			CurrentAmmo -= amount;
-		
 
-			currentAmmo.text = CurrentAmmo.ToString ();
+		maxAmmo.text = Gun.Magazine.ToString ();
+		currentAmmo.text = Gun.Mag.ToString ();
 		}
 
 		
 	}
-	public void Reload2(){
-		CurrentAmmo = StartingAmmo;
+	/*void Reload2(){
+		CurrentAmmo = MaxAmmo;
 		currentAmmo.text = CurrentAmmo.ToString ();
 
 
-	}
+	}'*/
 
-}
+

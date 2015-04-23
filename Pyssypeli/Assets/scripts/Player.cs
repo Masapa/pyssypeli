@@ -6,6 +6,8 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		StartLife ();
+		ballshit ();
+		StartWeapon ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -25,5 +27,6 @@ public partial class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		DeathCheck ();
+		AmmoCheck ();
 	}
 }
