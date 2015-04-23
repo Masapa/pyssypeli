@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void Star(){
+	void Start(){
 		rb = GetComponent<Rigidbody2D> ();
 	}
 
@@ -21,6 +21,6 @@ public class BulletScript : MonoBehaviour {
 		if (Siivous < 0) {
 			Destroy (gameObject);
 		}
-		rb.velocity = rb.transform.rotation * Vector2.up * Speed;		//antaa luodille vauhdin ja oikean suunnan
+		rb.velocity = rb.transform.rotation * Vector2.up * Speed;
 	}
 }
