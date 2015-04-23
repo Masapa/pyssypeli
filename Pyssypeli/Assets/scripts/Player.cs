@@ -26,6 +26,7 @@ public partial class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Debug.DrawLine (transform.position, Camera.current.ScreenToWorldPoint(Input.mousePosition), Color.red);
+
 	}
 }
