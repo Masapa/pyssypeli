@@ -21,7 +21,7 @@ public partial class Player : MonoBehaviour {
 		bullet.Speed = 8f;			// panoksen lentonopeus
 		bullet.Damage = 2f;			// panoksen vahinko
 		bullet.Amount = 0f;			// panoksia/laukaus
-		bullet.Siivous = 2;			// aika jolloin panos katoaa (varmuuden vuoksi)
+		//bullet.Siivous = 2;			// aika jolloin panos katoaa (varmuuden vuoksi)
 	}
 
 	void LoadFlamethrower(){
