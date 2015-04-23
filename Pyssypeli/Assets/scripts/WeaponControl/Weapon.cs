@@ -5,15 +5,15 @@ public class Weapon : MonoBehaviour {
 
 	public GameObject Bullet;
 	public float fireRate = 0;
-	public float Magazine = 20;
+	public int MaxMag = 20;
 	public float RTime = 2f;
-	public float Mag = 0;
+	public int Mag = 0;
 	float Reloader = -1;
 	float timeToFire = 0;
 	Transform firePoint;
 
 	void Start(){
-		Mag = Magazine;
+		Mag = MaxMag;
 	}
 
 	void Shoot(){
@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour {
 		}
 		
 		if (Reloader <= 0 && Reloader >= -.5) {			//tarkistaa millon ase on valmis	
-			Mag = Magazine;
+			Mag = MaxMag;
 		}
 		
 		if (Input.GetButton ("Reload") && Reloader < -.5) {	//laittaa aseen lataamaan kun painaa "R"

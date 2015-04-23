@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour {
 
 	public float Speed = 8f;		//panoksen lentonopeus
 	public float Damage = 2f;		//panoksen vahinko
-	public float Amount = 0f;
+	public float Amount = 0f;		// panoksia/laukaus
 	private float Siivous = 2;		//aika jolloin panos katoaa (varmuuden vuoksi)
 	Rigidbody2D rb;
 
@@ -16,7 +16,6 @@ public class BulletScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
-		Debug.Log (other.collider.tag);
 		if (other.collider.tag == "HardObject" || other.collider.tag == "Seina") {
 			Destroy (gameObject);
 		}
