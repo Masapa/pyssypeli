@@ -8,8 +8,10 @@ public class BulletScript : MonoBehaviour {
 	private float Siivous = 2;		//aika jolloin panos katoaa (varmuuden vuoksi)
 	Rigidbody2D rb;
 
-	void OnTriggerEnter2D(){
-		Destroy (gameObject);
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.tag == "Player" || other.tag == "HardObject" || other.tag == "Seina" || other.tag == "Enemy"){
+			Destroy (gameObject);
+		}
 	}
 
 	void Start(){
