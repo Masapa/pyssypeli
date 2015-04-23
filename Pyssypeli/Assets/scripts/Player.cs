@@ -10,8 +10,11 @@ public partial class Player : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter2D(){
-		Debug.Log ("KUOLIT AHAHAH VITTU!");
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Enemy" || other.tag == "Bullet") {
+			Debug.Log ("KUOLIT AHAHAH VITTU!");
+			PlayerDied();
+		}
 	}
 
 	// Use this for initialization
@@ -23,15 +26,6 @@ public partial class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if(Input.GetButtonDown("Fire1")){
-		TakeDamage (10);
-			Shoot (1);
-		}
-
-		if(Input.GetButtonDown("Reload")){
-			Reload2();
-		}
 	
 	}
 }
