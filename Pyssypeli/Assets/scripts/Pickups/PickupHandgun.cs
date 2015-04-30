@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PickupHandgun : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class PickupHandgun : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Player") {
-			inventory.Handgun = true;
+			inventory.GotHandgun = true;
 			Destroy(gameObject);
 		}
 	}
