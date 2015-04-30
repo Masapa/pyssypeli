@@ -7,7 +7,7 @@ public partial class Player : MonoBehaviour {
 	void Awake(){
 		StartLife ();
 		ballshit ();
-		StartWeapon ();
+		StartWeapon1 ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
