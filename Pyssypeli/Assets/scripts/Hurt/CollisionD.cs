@@ -4,11 +4,15 @@ using System.Collections;
 public class CollisionD : MonoBehaviour {
 	
 
-	public float health = 10;
-	public BulletScript bullet;
+	public int health = 10;
+	public Weapon weapon;
 
-	void OnTriggerEnter2D(){
-		health -= bullet.Damage;
+	void OnTriggerStay2D(){
+		InvokeRepeating ("TakeDamage", 0, 0);
+	}
+
+	void TakeDamage(){
+		health -= weapon.Damage;
 	}
 	
 	void Death(){
@@ -18,6 +22,7 @@ public class CollisionD : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		weapon = (Weapon)GameObject.FindGameObjectWithTag ("Weapon").GetComponentInChildren<Weapon> ();
 	}
 	
 	// Update is called once per frame

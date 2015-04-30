@@ -4,15 +4,12 @@ using UnityEngine.UI;
 
 public partial class Player : MonoBehaviour {
 
-	Weapon Gun;
-
-	public int MaxAmmo = 12;
-	public int CurrentAmmo = 20;
-
 	public Text	currentAmmo;				
 	public Text maxAmmo;
 
-	void StartWeapon(){
+<<<<<<< HEAD
+=======
+	void StartWeapon1(){
 		Gun = (Weapon)this.GetComponentInChildren<Weapon> ();;
 	}
 
@@ -21,10 +18,9 @@ public partial class Player : MonoBehaviour {
 		CurrentAmmo = MaxAmmo;
 	}
 
+>>>>>>> f06a1b57306e5c163f00a47aeddb4948dd878350
 	void AmmoCheck ()
 	{
-
-
 		maxAmmo.text = Gun.MaxMag.ToString ();
 		currentAmmo.text = Gun.Mag.ToString ();
 		}

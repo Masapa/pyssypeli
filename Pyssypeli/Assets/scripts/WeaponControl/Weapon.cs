@@ -1,43 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
 
 	public GameObject Bullet;
-	public float fireRate = 0;
-	public int MaxMag = 20;
-	public float RTime = 2f;
-	public int Mag = 0;
-	float Reloader = -1;
-	float timeToFire = 0;
+	public string ReloadTime;
+	public string FireRate;
+	public string Delay;
+	public string Speed;
+	public int MaxMag;
+	public int MemMag;
+	public int Mag;
+	public int Amount;
+	public int Damage;
+
+	float Frate;
+	float RTime;
+	float Reloader = 0;
+	float TimeToFire = 0;
 	Transform firePoint;
 
 	void Start(){
 		Mag = MaxMag;
+		MemMag = MaxMag;
 	}
 
 	void Shoot(){
-		Vector3 pos = transform.position;
-		Instantiate (Bullet, transform.position, transform.rotation);
+	Vector3 pos = transform.position;
+	for (int k = 0; k < Amount; k++) {
+			Instantiate (Bullet, transform.position, transform.rotation);
+		}
 	}
 	
-	void Update(){
+	void FixedUpdate(){
 
-		Reloader -= Time.deltaTime;
+		RTime = float.Parse (ReloadTime);
+		Frate = float.Parse (FireRate);
+		Reloader -= Time.smoothDeltaTime;
 		
-		if (Reloader < -6) {							//ettei mee liian pitkälle
-			Reloader = -1;
-		}
-		
-		if (Reloader <= 0 && Reloader >= -.5) {			//tarkistaa millon ase on valmis	
+		if (Reloader < 0 && Reloader >= -.1) {								//tarkistaa millon ase on valmis
 			Mag = MaxMag;
 		}
 		
-		if (Input.GetButton ("Reload") && Reloader < -.5) {	//laittaa aseen lataamaan kun painaa "R"
+		if (Input.GetButton ("Reload") || Mag == 0 && Reloader < -.1) {		//laittaa aseen lataamaan kun painaa "R"
 			Reloader = RTime;
 		}
 		
-		if (fireRate == 0 && Mag > 0 && Reloader < -.5) {
+		if (Frate == 0 && Mag > 0 && Reloader < -.1) {
 			if (Input.GetButtonDown ("Fire1")) {
 				Shoot();
 				Mag--;
@@ -45,8 +55,8 @@ public class Weapon : MonoBehaviour {
 
 		} else {
 			
-			if (Input.GetButton ("Fire1") && Time.time > timeToFire && Mag > 0 && Reloader < -.5) {
-				timeToFire = Time.time + 1 / fireRate;
+			if (Input.GetButton ("Fire1") && Time.time > TimeToFire && Mag > 0 && Reloader < -.1) {
+				TimeToFire = Time.time + 1 / Frate;
 				Shoot();
 				Mag--;
 			}
