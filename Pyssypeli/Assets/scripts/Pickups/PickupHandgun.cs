@@ -3,13 +3,16 @@ using System.Collections;
 
 public class PickupHandgun : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	Player inventory;
 	
+	void Start(){
+		inventory = (Player)GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnTriggerStay2D(Collider2D other){
+		if (other.tag == "Player") {
+			inventory.Handgun = true;
+			Destroy(gameObject);
+		}
 	}
 }
