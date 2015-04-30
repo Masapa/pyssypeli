@@ -21,11 +21,11 @@ public class human : MonoBehaviour
 		private bool isAlive ;
 		private bool isHostile ;
 
-	public BulletScript bullet;
+	public Weapon weapon;
 	public float health = 6;
 
 	void OnTriggerEnter2D(){
-		health -= bullet.Damage;
+		health -= weapon.Damage;
 	}
 
 
