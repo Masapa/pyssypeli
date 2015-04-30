@@ -5,14 +5,15 @@ public class CollisionD : MonoBehaviour {
 	
 
 	public int health = 10;
-	public Weapon weapon;
+	GameObject fak;
+	Weapon Gun;
 
 	void OnTriggerStay2D(){
 		InvokeRepeating ("TakeDamage", 0, 0);
 	}
 
 	void TakeDamage(){
-		health -= weapon.Damage;
+		health -= Gun.Damage;
 	}
 	
 	void Death(){
@@ -22,7 +23,8 @@ public class CollisionD : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		weapon = (Weapon)GameObject.FindGameObjectWithTag ("Weapon").GetComponentInChildren<Weapon> ();
+		fak = GameObject.Find ("FirePoint");
+		Gun = fak.GetComponent<Weapon> ();
 	}
 	
 	// Update is called once per frame

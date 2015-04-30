@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public partial class Player : MonoBehaviour {
 	
-	Weapon Gun;
+
 	
 	public Slider ammoSlider;
 
@@ -12,9 +12,7 @@ public partial class Player : MonoBehaviour {
 	public Text	currentAmmo;				
 	public Text maxAmmo;
 
-	void StartWeapon1(){
-		Gun = (Weapon)this.GetComponentInChildren<Weapon> ();
-	}
+
 
 
 	void AmmoCheck ()

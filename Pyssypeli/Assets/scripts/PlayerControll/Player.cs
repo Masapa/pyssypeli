@@ -6,20 +6,18 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		StartLife ();
-
-		StartWeapon1 ();
+		StartWeapon ();
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" || other.tag == "Bullet") {
-			TakeDamage(11);
 			Debug.Log ("KUOLIT AHAHAH VITTU!");
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
-
+		LoadTommygun ();
 
 
 	}
@@ -29,11 +27,23 @@ public partial class Player : MonoBehaviour {
 		DeathCheck ();
 		AmmoCheck ();
 
-		if (Input.GetButton ("Reload")) {
-			float tick = Gun.RTime/100;
+		if (Input.GetKeyDown (KeyCode.Alpha1)){LoadFists();Debug.Log("Sullon fistit");}
+		if (Input.GetKeyDown (KeyCode.Alpha2)&&GotHandgun==true){LoadHandgun();Debug.Log("Sullon pisla");}
+		if (Input.GetKeyDown (KeyCode.Alpha3)&&GotTommygun==true){LoadTommygun();Debug.Log("Sullon SKP");}
 
-			if()
+
+
+		if (Input.GetButtonDown ("Reload")) {
+			float tick = Gun.ReloadTime/98;
+			CancelInvoke("ReloadAnimation");
+			ammoSlider.value = 0;
+			if(ammoSlider.value < 101)
 			{
+				InvokeRepeating("ReloadAnimation",0,tick);
+
+
+				//if(ammoSlider.value >= 100)
+				
 				
 			}
 
