@@ -14,6 +14,7 @@ public class MoveTo : MonoBehaviour {
 	bool seuraa = false;
 	bool näkee = false;
 	bool jahtaa = false;
+	bool ampuu = false;
 	Rigidbody2D tmp;
 
 	private Player health;
@@ -71,13 +72,17 @@ public class MoveTo : MonoBehaviour {
 
 	void Raycasting()
 	{
-		Debug.DrawLine (sightStart.position, (sightEnd.position-sightStart.position)*50, Color.green);
+		// Debug.DrawLine (sightStart.position, (sightEnd.position-sightStart.position)*50, Color.green);
+		Debug.DrawLine (myTransform.position, Target.position, Color.green);
 
-		RaycastHit2D spotted = Physics2D.Raycast (sightStart.position, sightEnd.position-sightStart.position, 15, WhatToHit);
+		// RaycastHit2D spotted = Physics2D.Raycast (sightStart.position, sightEnd.position-sightStart.position, 15, WhatToHit);
+		RaycastHit2D spotted = Physics2D.Raycast (myTransform.position, (Target.position - myTransform.position), 15, WhatToHit);
 		if (spotted.collider != null && spotted.collider.name == "Player") {
-			Debug.DrawLine (sightStart.position, spotted.point, Color.red);
+			Debug.DrawLine (myTransform.position, spotted.point, Color.red);
 			näkee = true;
 		} 
+
+
 		if (näkee == true) {
 			seuraa = true;
 		}
@@ -96,6 +101,7 @@ public class MoveTo : MonoBehaviour {
 		}
 		if (jahtaa == true) {
 			Chase ();
+			Shooting();
 		}
 
 		if (jahtaa == false) {
@@ -133,6 +139,8 @@ public class MoveTo : MonoBehaviour {
 
 	void Shooting()
 	{
+		ampuu = true;
+
 
 	}
 }
