@@ -174,6 +174,52 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 4294966778
+--- !u!1001 &1028143361
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.04310608
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -10.862175
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473826, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 123882, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+      propertyPath: m_Name
+      value: SeinaovilukollinenUus 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a74371b84cd5c544c8c46f27acf52003, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1083469427
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +289,10 @@ Prefab:
     - target: {fileID: 160548, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 134332, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
