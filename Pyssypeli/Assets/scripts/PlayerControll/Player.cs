@@ -6,7 +6,7 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		StartLife ();
-		ballshit ();
+
 		StartWeapon1 ();
 	}
 
@@ -19,7 +19,7 @@ public partial class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 
 
 	}
@@ -28,5 +28,22 @@ public partial class Player : MonoBehaviour {
 	void Update () {
 		DeathCheck ();
 		AmmoCheck ();
+
+		if (Input.GetButton ("Reload")) {
+			float tick = Gun.RTime/100;
+
+			if()
+			{
+				
+			}
+
+		
+		
+		}
+
 	}
+
+
+
+
 }
