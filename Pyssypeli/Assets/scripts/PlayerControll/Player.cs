@@ -6,13 +6,10 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		StartLife ();
-<<<<<<< HEAD
 		StartWeapon ();
 		GotTommygun = true;
-=======
 		ballshit ();
 		StartWeapon1 ();
->>>>>>> f06a1b57306e5c163f00a47aeddb4948dd878350
 	}
 
 	// Use this for initialization
