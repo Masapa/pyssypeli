@@ -5,14 +5,10 @@ using UnityEngine.UI;
 public partial class Player : MonoBehaviour {
 
 	void Awake(){
-		StartLife ();
-<<<<<<< HEAD
 		StartWeapon ();
+		StartLife ();
 		GotTommygun = true;
-=======
-		ballshit ();
 		StartWeapon1 ();
->>>>>>> f06a1b57306e5c163f00a47aeddb4948dd878350
 	}
 
 	// Use this for initialization
@@ -39,9 +35,9 @@ public partial class Player : MonoBehaviour {
 		DeathCheck ();
 		AmmoCheck ();
 
-		if (Input.GetKeyDown (KeyCode.Alpha1)){LoadFists();Debug.Log("Sullon fistit");}
-		if (Input.GetKeyDown (KeyCode.Alpha2)&&GotHandgun==true){LoadHandgun();Debug.Log("Sullon pisla");}
-		if (Input.GetKeyDown (KeyCode.Alpha3)&&GotTommygun==true){LoadTommygun();Debug.Log("Sullon SKP");}
+		if (Input.GetKeyDown (KeyCode.Alpha1)){LoadFists();Debug.Log("Fists Equipped");}
+		if (Input.GetKeyDown (KeyCode.Alpha2)&&GotHandgun==true){LoadHandgun();Debug.Log("Handgun Equipped");}
+		if (Input.GetKeyDown (KeyCode.Alpha3)&&GotTommygun==true){LoadTommygun();Debug.Log("SKP Equipped");}
 		/*if (Input.GetKeyDown (KeyCode.Alpha4)&&GotGatlinggun==true){LoadGatlinggun();}
 		if (Input.GetKeyDown (KeyCode.Alpha5)&&GotRifle==true){LoadRifle();}
 		if (Input.GetKeyDown (KeyCode.Alpha6)&&GotBoomstick==true){LoadBoomstick();}

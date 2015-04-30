@@ -11,51 +11,58 @@ public partial class Player : MonoBehaviour {
 	public bool GotRifle = false;
 	public bool GotBoomstick = false;
 	
-	public Weapon Gun;
-	public BulletScript Bullet;
+	GameObject Weapon;
+	Weapon Gun;
+ 	public GameObject Blet;
+	BulletScript Bullet;
 
 	void StartWeapon(){
-		Gun = (Weapon)this.GetComponentInChildren<Weapon> ();
-		Bullet = (BulletScript)this.GetComponent<BulletScript> ();
+		Weapon = GameObject.Find("FirePoint");
+		Gun = Weapon.GetComponent<Weapon> ();
+		Bullet = Blet.GetComponent<BulletScript> ();
 	}
 	
 	void LoadFists(){
 		//int
 		Gun.MaxMag = 1;				// lippaan koko
-		Gun.Damage = 1;				// aseen vahinko
 		Gun.Amount = 1;				// panoksia/laukaus
+		Bullet.Damage = 1;			// osuman vahinko
 		
-		//String
-		Gun.Delay = "0";			// kuinka kauan nappia pitää painaa että ampuminen alkaa
-		Gun.FireRate = "0";			// 0-puoliautomaatti, >1 sarja ja sen tiheys
-		Gun.ReloadTime = "0";		// lataus nopeus
-		Gun.Speed = "1";
+		//float
+		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
+		Gun.FireRate = 0f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
+		Gun.ReloadTime = 0f;		// lataus nopeus
+		Bullet.Speed = 100f;		// Panoksen nopeus
+		Bullet.Siivous = 0.1f;		// Millon panos haihtuu
+
 	}
 
 	void LoadHandgun(){
 		//int
-		Gun.MaxMag = 20;			// lippaan koko
-		Gun.Damage = 3;				// aseen vahinko
+		Gun.MaxMag = 12;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
+		Bullet.Damage = 6;			// osuman vahinko
 		
-		//String
-		Gun.Delay = "0";			// kuinka kauan nappia pitää painaa että ampuminen alkaa
-		Gun.FireRate = "2";			// 0-puoliautomaatti, >1 sarja ja sen tiheys
-		Gun.ReloadTime = "1";		// lataus nopeus
-		Gun.Speed = "2";
+		//float
+		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
+		Gun.FireRate = 0f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
+		Gun.ReloadTime = 2f;		// lataus nopeus
+		Bullet.Speed = 12f;			// Panoksen nopeus
+		Bullet.Siivous = 2f;		// Millon panos haihtuu
 	}
 
 	void LoadTommygun(){
 		//int
-		Gun.MaxMag = 40;			// lippaan koko
-		Gun.Damage = 1;				// aseen vahinko
+		Gun.MaxMag = 30;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
+		Bullet.Damage = 3;			// osuman vahinko
 		
-		//String
-		Gun.Delay = "0";			// kuinka kauan nappia pitää painaa että ampuminen alkaa
-		Gun.FireRate = "6";			// 0-puoliautomaatti, >1 sarja ja sen tiheys
-		Gun.ReloadTime = "2";		// lataus nopeus
-		Gun.Speed = "3";
+		//float
+		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
+		Gun.FireRate = 10f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
+		Gun.ReloadTime = 4f;		// lataus nopeus
+		Bullet.Speed = 12f;			// Panoksen nopeus
+		Bullet.Siivous = 2f;		// Millon panos haihtuu
 	}
 	/*
 	void LoadGatlinggun(){
