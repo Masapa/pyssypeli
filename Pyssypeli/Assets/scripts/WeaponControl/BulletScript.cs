@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour {
 	void FixedUpdate (){
 		Siivous -= Time.deltaTime;
 		if (Siivous < 0) {
-			Destroy (rb);
+			Destroy (gameObject);
 		}
 		rb.velocity = rb.transform.rotation * Vector2.up * Speed;
 	}

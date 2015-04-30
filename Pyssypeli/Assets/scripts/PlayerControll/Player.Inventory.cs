@@ -10,30 +10,34 @@ public partial class Player : MonoBehaviour {
 	public bool GotFlamethrower = false;
 	public bool GotRifle = false;
 	public bool GotBoomstick = false;
-	
+
+	GameObject weapasd;
+	Weapon weapfuck;
 	GameObject Weapon;
 	Weapon Gun;
  	public GameObject Blet;
 	BulletScript Bullet;
 
 	void StartWeapon(){
+
+
 		Weapon = GameObject.Find("FirePoint");
 		Gun = Weapon.GetComponent<Weapon> ();
-		Bullet = Blet.GetComponent<BulletScript> ();
+
 	}
 	
 	void LoadFists(){
 		//int
 		Gun.MaxMag = 1;				// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
-		Bullet.Damage = 1;			// osuman vahinko
+		Gun.Damage = 1;			// osuman vahinko
 		
 		//float
 		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
 		Gun.FireRate = 0f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
 		Gun.ReloadTime = 0f;		// lataus nopeus
-		Bullet.Speed = 100f;		// Panoksen nopeus
-		Bullet.Siivous = 0.1f;		// Millon panos haihtuu
+		Gun.Speed = 100f;		// Panoksen nopeus
+		Gun.Siivous = 0.1f;		// Millon panos haihtuu
 
 	}
 
@@ -41,28 +45,28 @@ public partial class Player : MonoBehaviour {
 		//int
 		Gun.MaxMag = 12;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
-		Bullet.Damage = 6;			// osuman vahinko
+		Gun.Damage = 6;			// osuman vahinko
 		
 		//float
 		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
 		Gun.FireRate = 0f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
 		Gun.ReloadTime = 2f;		// lataus nopeus
-		Bullet.Speed = 12f;			// Panoksen nopeus
-		Bullet.Siivous = 2f;		// Millon panos haihtuu
+		Gun.Speed = 12f;			// Panoksen nopeus
+		Gun.Siivous = 2f;		// Millon panos haihtuu
 	}
 
 	void LoadTommygun(){
 		//int
 		Gun.MaxMag = 30;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
-		Bullet.Damage = 3;			// osuman vahinko
+		Gun.Damage = 3;			// osuman vahinko
 		
 		//float
 		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
 		Gun.FireRate = 10f;			// 0-puoliautomaatti, >1 sarja ja sen tiheys
 		Gun.ReloadTime = 4f;		// lataus nopeus
-		Bullet.Speed = 12f;			// Panoksen nopeus
-		Bullet.Siivous = 2f;		// Millon panos haihtuu
+		Gun.Speed = 12f;			// Panoksen nopeus
+		Gun.Siivous = 2f;		// Millon panos haihtuu
 	}
 	/*
 	void LoadGatlinggun(){

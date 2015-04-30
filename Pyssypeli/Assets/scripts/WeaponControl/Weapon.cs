@@ -12,7 +12,10 @@ public class Weapon : MonoBehaviour {
 	public int MemMag;
 	public int Mag;
 	public int Amount;
-	public int Damage = 2;
+
+	public int Damage;
+	public float Speed;
+	public float Siivous;
 
 	float Frate;
 	float RTime;
@@ -29,7 +32,13 @@ public class Weapon : MonoBehaviour {
 	void Shoot(){
 	Vector3 pos = transform.position;
 	for (int k = 0; k < Amount; k++) {
-			Instantiate (Bullet, transform.position, transform.rotation);
+			GameObject panos = Instantiate (Bullet, transform.position, transform.rotation) as GameObject;
+			BulletScript testi = panos.GetComponent<BulletScript>();
+			testi.Damage = Damage;
+			testi.Speed = Speed;
+			testi.Siivous = Siivous;
+			
+
 		}
 	}
 	

@@ -6,7 +6,7 @@ public partial class Player : MonoBehaviour {
 
 	void Awake(){
 		StartLife ();
-		StartWeapon ();
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -17,9 +17,9 @@ public partial class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		StartWeapon ();
 		LoadTommygun ();
-
-
 	}
 	
 	// Update is called once per frame
@@ -57,3 +57,4 @@ public partial class Player : MonoBehaviour {
 
 
 }
+

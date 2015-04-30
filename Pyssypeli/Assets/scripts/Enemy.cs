@@ -121,13 +121,15 @@ public class Enemy : MonoBehaviour {
 		if (katsoo == true) {
 			Turret ();
 		}
-		
-		if (spotted.collider.name != "Player") {
-			näkee = false;
+		if (spotted) {
+			if (spotted.collider.name != "Player") {
+				näkee = false;
+			}
 		}
 		
 		if (seuraa == false || näkee == false) {
 			jahtaa = false;
+			ampuu = false;
 			//Debug.Log ("EI JAHTAA");
 		}
 
@@ -182,7 +184,7 @@ public class Enemy : MonoBehaviour {
 			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward); 
 			myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
 			
-			Shooting ();
+			//Shooting ();
 	
 	}
 	
