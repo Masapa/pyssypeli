@@ -2,26 +2,24 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-	public Transform Target;
-	public Transform sightStart, sightEnd;
+
 	public Transform patrolDest;
 	private Transform myTransform;
 	public GameObject Bullet;
 	public int moveSpeed;
 	public int rotationSpeed;
-	public int maxdistance;
 	private Player health;
-	private CircleCollider2D ymp;
-	public bool spotted = false;
 	public LayerMask WhatToHit;
-	
+
+	Transform Target;
 	Transform _sightEnd;
-	bool seuraa = false;
-	bool näkee = false;
-	bool jahtaa = false;
-	bool ampuu = false;
-	bool katsoo = false;
-	bool palaudu = false;
+	public bool spotted = false;
+	private bool seuraa = false;
+	private bool näkee = false;
+	private bool jahtaa = false;
+	private bool ampuu = false;
+	private bool katsoo = false;
+	private bool palaudu = false;
 	Rigidbody2D tmp;
 
 	int MaxMag = 12;
@@ -43,14 +41,17 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		seuraaas = GetComponentInChildren<detectionienemy>();
+		myTransform = transform;
+		Transform[] ts = transform.GetComponentsInChildren<Transform>();
+		foreach (Transform t in ts) {
+			if(t.gameObject.name == "Piippu"){aseenkarkii = t;}
+		
+		}
 
-		GameObject aseenkärki = GameObject.Find ("Piippu");
-		aseenkarkii = aseenkärki.transform;
 		GameObject go = GameObject.FindGameObjectWithTag ("Player");
-		_sightEnd = sightEnd;
+		// _sightEnd = sightEnd;
 		Target = go.transform;
 		tmp = GetComponent<Rigidbody2D> ();
-		maxdistance = 10;
 		// ymp = Target.GetComponents<CircleCollider2D>;
 	}
 	/*
@@ -71,10 +72,6 @@ public class Enemy : MonoBehaviour {
 	}*/
 	// Update is called once per frame
 	void FixedUpdate () {
-
-		if ((Vector3.Distance (Target.position, myTransform.position) > 0)) {
-			ampuu = true;
-		}
 
 		Reloader -= Time.smoothDeltaTime;
 		
@@ -141,6 +138,7 @@ public class Enemy : MonoBehaviour {
 
 		if (jahtaa == true) {
 			Chase ();
+			ampuu = true;
 		}
 		
 		if (jahtaa == false) {
@@ -162,11 +160,11 @@ public class Enemy : MonoBehaviour {
 		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
 		
 		
-		if (Vector3.Distance (Target.position, myTransform.position) > (maxdistance + 1f)) {
+		if (Vector3.Distance (Target.position, myTransform.position) > (10 + 1f)) {
 			tmp.velocity = tmp.transform.rotation * Vector2.right * moveSpeed;
 		} 
 		
-		else if (Vector3.Distance (Target.position, myTransform.position) < (maxdistance - 1f)) {
+		else if (Vector3.Distance (Target.position, myTransform.position) < (10 - 1f)) {
 			tmp.velocity = tmp.transform.rotation * -Vector2.right * moveSpeed * 0.75f;
 		}
 		
@@ -184,8 +182,8 @@ public class Enemy : MonoBehaviour {
 			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward); 
 			myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
 			
-			// Shooting ();
-
+			Shooting ();
+	
 	}
 	
 	void Shooting()
@@ -201,6 +199,7 @@ public class Enemy : MonoBehaviour {
 
 	void Shoot()
 	{
-		Instantiate (Bullet, aseenkarkii.position, aseenkarkii.rotation);
+
+		Instantiate (Bullet, aseenkarkii.position, (myTransform.rotation * Quaternion.Euler(0,0,-90)));
 	}
 }
