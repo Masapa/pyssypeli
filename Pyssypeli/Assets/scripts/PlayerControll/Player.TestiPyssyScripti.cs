@@ -25,7 +25,7 @@ public partial class Player : MonoBehaviour {
 	{
 
 
-		maxAmmo.text = Gun.Magazine.ToString ();
+		maxAmmo.text = Gun.MaxMag.ToString ();
 		currentAmmo.text = Gun.Mag.ToString ();
 		}
 
