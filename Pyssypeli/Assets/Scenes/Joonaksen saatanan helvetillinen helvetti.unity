@@ -144,7 +144,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11423916, guid: e8fb3cd43c40e0043899629b7fc49b7c, type: 2}
       propertyPath: FireRate
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 498718, guid: e8fb3cd43c40e0043899629b7fc49b7c, type: 2}
       propertyPath: m_LocalScale.z
@@ -158,6 +158,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: .639999986
       objectReference: {fileID: 0}
+    - target: {fileID: 11423916, guid: e8fb3cd43c40e0043899629b7fc49b7c, type: 2}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 162870, guid: 86e7881d003a2c143ad2427f172bc1c8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8fb3cd43c40e0043899629b7fc49b7c, type: 2}
   m_IsPrefabParent: 0
@@ -228,8 +232,7 @@ MonoBehaviour:
   GotFlamethrower: 0
   GotRifle: 0
   GotBoomstick: 0
-  Gun: {fileID: 0}
-  Bullet: {fileID: 0}
+  Blet: {fileID: 162870, guid: 86e7881d003a2c143ad2427f172bc1c8, type: 2}
   currentAmmo: {fileID: 2124593919}
   maxAmmo: {fileID: 581960658}
 --- !u!58 &633046623

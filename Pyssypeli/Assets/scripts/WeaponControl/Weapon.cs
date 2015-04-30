@@ -3,17 +3,19 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
-
+	
 	public GameObject Bullet;
-	public string ReloadTime;
-	public string FireRate;
-	public string Delay;
-	public string Speed;
+	public float ReloadTime;
+	public float FireRate;
+	public float Delay;
 	public int MaxMag;
 	public int MemMag;
 	public int Mag;
 	public int Amount;
+
 	public int Damage;
+	public float Speed;
+	public float Siivous;
 
 	float Frate;
 	float RTime;
@@ -22,6 +24,7 @@ public class Weapon : MonoBehaviour {
 	Transform firePoint;
 
 	void Start(){
+
 		Mag = MaxMag;
 		MemMag = MaxMag;
 	}
@@ -29,14 +32,23 @@ public class Weapon : MonoBehaviour {
 	void Shoot(){
 	Vector3 pos = transform.position;
 	for (int k = 0; k < Amount; k++) {
-			Instantiate (Bullet, transform.position, transform.rotation);
+			GameObject panos = Instantiate (Bullet, transform.position, transform.rotation) as GameObject;
+			BulletScript testi = panos.GetComponent<BulletScript>();
+			testi.Damage = Damage;
+			testi.Speed = Speed;
+			testi.Siivous = Siivous;
+			
+
 		}
 	}
 	
 	void FixedUpdate(){
 
-		RTime = float.Parse (ReloadTime);
-		Frate = float.Parse (FireRate);
+		//PanoksenVahinko = Bullet.Damage;
+		//PanoksenNopeus = Bullet.Speed;
+		//PanoksenIka = Bullet.Siivous;
+		RTime = ReloadTime;
+		Frate = FireRate;
 		Reloader -= Time.smoothDeltaTime;
 		
 		if (Reloader < 0 && Reloader >= -.1) {								//tarkistaa millon ase on valmis

@@ -3,10 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class BulletScript : MonoBehaviour {
-
+	
 	Rigidbody2D rb;
-	float Speed = 10f;
-	float Siivous = 3f;
+	public int Damage = 99;
+	public float Speed = 10f;
+	public float Siivous = 10f;
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player" || other.tag == "Enemy"){
