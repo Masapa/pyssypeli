@@ -65,7 +65,7 @@ GameObject:
   - 60: {fileID: 6002972}
   m_Layer: 9
   m_Name: Rotate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   - 114: {fileID: 11400108}
   m_Layer: 9
   m_Name: Vihu 1
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - 60: {fileID: 6078066}
   m_Layer: 9
   m_Name: Rotate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ GameObject:
   - 60: {fileID: 6073136}
   m_Layer: 9
   m_Name: Rotate
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - 114: {fileID: 11407952}
   m_Layer: 9
   m_Name: Vihu 2
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,7 +404,7 @@ GameObject:
   - 114: {fileID: 11461928}
   m_Layer: 9
   m_Name: Vihu
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,7 +786,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.4030094, y: -46.4812469, z: 0}
+  m_LocalPosition: {x: -100.451347, y: -67.8468552, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477308}
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 4294966778
-  spotted: 0
+  Health: 100
 --- !u!114 &11403618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1483,6 +1483,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   Siivous: 0
+  Reloader: 0
 --- !u!114 &11407952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1501,7 +1502,7 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 4294966778
-  spotted: 0
+  Health: 100
 --- !u!114 &11419894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1524,6 +1525,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   Siivous: 0
+  Reloader: 0
 --- !u!114 &11461172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1554,7 +1556,7 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 4294966778
-  spotted: 0
+  Health: 100
 --- !u!114 &11476336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1601,6 +1603,7 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   Siivous: 0
+  Reloader: 0
 --- !u!212 &21203014
 SpriteRenderer:
   m_ObjectHideFlags: 1

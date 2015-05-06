@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Start () {
-
+	
 		pelaaja = GameObject.Find ("Pelaaja");
 		asd = GetComponent<Player> ();
 		ase = GetComponent<Weapon> ();
@@ -106,6 +106,7 @@ public class Enemy : MonoBehaviour {
 		seuraas = seuraaas.tila;
 		seuraa = seuraas;
 		Raycasting ();
+
 		tarkistaKuolema ();
 		
 	}

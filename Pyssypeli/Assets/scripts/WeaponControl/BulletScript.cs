@@ -10,9 +10,11 @@ public class BulletScript : MonoBehaviour {
 	public float Siivous = 10f;
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Player" || other.tag == "Enemy"){
+		if(other.tag == "Player" || other.tag == "Enemy" ){
+
 			Destroy (gameObject);
-			other.SendMessageUpwards("TakeDamage",Damage,SendMessageOptions.DontRequireReceiver);
+
+			other.SendMessageUpwards("TakeDamage",25,SendMessageOptions.DontRequireReceiver);
 
 		}
 	}

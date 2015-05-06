@@ -45,7 +45,7 @@ public partial class Player : MonoBehaviour {
 		//int
 		Gun.MaxMag = 12;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
-		Gun.Damage = 6;			// osuman vahinko
+		Gun.Damage = 25;			// osuman vahinko
 		
 		//float
 		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa
@@ -59,7 +59,7 @@ public partial class Player : MonoBehaviour {
 		//int
 		Gun.MaxMag = 30;			// lippaan koko
 		Gun.Amount = 1;				// panoksia/laukaus
-		Gun.Damage = 3;			// osuman vahinko
+		Gun.Damage = 6;			// osuman vahinko
 		
 		//float
 		Gun.Delay = 0f;				// kuinka kauan nappia pitää painaa että ampuminen alkaa

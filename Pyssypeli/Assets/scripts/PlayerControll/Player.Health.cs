@@ -26,14 +26,17 @@ public partial class Player : MonoBehaviour {
 	}
 
 	void DeathCheck (){
-		if (health <= 0)
+		if (health <= 0) {
 			playerDead = true;
+			PlayerDied ();
+		}
 	}
 	
 	
 	void PlayerDied(){
 		// The player is now dead.
 		playerDead = true;
+		Application.LoadLevel (Application.loadedLevel);
 	}
 	
 	
@@ -50,7 +53,10 @@ public partial class Player : MonoBehaviour {
 		Application.LoadLevel(1);
 	}
 
-
+	public void giveHealth(int h){
+		health += h;
+	
+	}
 	void testaus ()
 	{
 		// If the player has just been damaged...
@@ -68,6 +74,7 @@ public partial class Player : MonoBehaviour {
 		
 		// Reset the damaged flag.
 		damaged = false;
+		healthSlider.value = health;
 	}
 
 	public void TakeDamage (int d)
@@ -79,7 +86,7 @@ public partial class Player : MonoBehaviour {
 		health -= d;
 		
 		// Set the health bar's value to the current health.
-		healthSlider.value = health;
+
 
 		//damaged = false;
 	}
