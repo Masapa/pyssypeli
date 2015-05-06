@@ -178,12 +178,24 @@ Prefab:
       propertyPath: m_Name
       value: HUDCanvassss 1
       objectReference: {fileID: 0}
+    - target: {fileID: 22470656, guid: 4c0a0d2524257f34e808d5743e23ea41, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22470656, guid: 4c0a0d2524257f34e808d5743e23ea41, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441498, guid: 4c0a0d2524257f34e808d5743e23ea41, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c0a0d2524257f34e808d5743e23ea41, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &351038941
+--- !u!114 &190958991
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11421426, guid: 4c0a0d2524257f34e808d5743e23ea41,
+  m_PrefabParentObject: {fileID: 11463342, guid: 4c0a0d2524257f34e808d5743e23ea41,
     type: 2}
   m_PrefabInternal: {fileID: 62427447}
   m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -374,7 +386,7 @@ Transform:
   m_LocalScale: {x: .25, y: .25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1253666492
 Prefab:
   m_ObjectHideFlags: 0
@@ -417,15 +429,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a922e461da051594c921bdaf9d520358, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1274397854
+--- !u!114 &1484389928
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11471864, guid: 4c0a0d2524257f34e808d5743e23ea41,
-    type: 2}
-  m_PrefabInternal: {fileID: 62427447}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!114 &1827867873
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11443712, guid: 4c0a0d2524257f34e808d5743e23ea41,
+  m_PrefabParentObject: {fileID: 11436708, guid: 4c0a0d2524257f34e808d5743e23ea41,
     type: 2}
   m_PrefabInternal: {fileID: 62427447}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -579,15 +585,21 @@ Prefab:
     - target: {fileID: 11493472, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 351038941}
+      objectReference: {fileID: 190958991}
     - target: {fileID: 11493472, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
       propertyPath: currentAmmo
       value: 
-      objectReference: {fileID: 1274397854}
+      objectReference: {fileID: 2120096562}
     - target: {fileID: 11493472, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
       propertyPath: maxAmmo
       value: 
-      objectReference: {fileID: 1827867873}
+      objectReference: {fileID: 1484389928}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aec3f3268fae7042828256daa7f85cc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2120096562
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11467608, guid: 4c0a0d2524257f34e808d5743e23ea41,
+    type: 2}
+  m_PrefabInternal: {fileID: 62427447}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
