@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		Bullet = Resources.Load ("Bullet") as GameObject;
 		seuraaas = GetComponentInChildren<detectionienemy>();
 		myTransform = transform;
 		Transform[] ts = transform.GetComponentsInChildren<Transform>();
