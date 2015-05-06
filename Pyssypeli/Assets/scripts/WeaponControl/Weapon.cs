@@ -16,10 +16,11 @@ public class Weapon : MonoBehaviour {
 	public int Damage;
 	public float Speed;
 	public float Siivous;
+	public float Reloader = 0;
 
 	float Frate;
 	float RTime;
-	public float Reloader = 0;
+
 	float TimeToFire = 0;
 	Transform firePoint;
 

@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CollisionD : MonoBehaviour {
-	
 
 	public int health = 10;
 	GameObject fak;
