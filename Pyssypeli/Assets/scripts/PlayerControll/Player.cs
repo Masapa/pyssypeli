@@ -11,7 +11,8 @@ public partial class Player : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" || other.tag == "Bullet") {
-			Debug.Log ("KUOLIT AHAHAH VITTU!");
+			TakeDamage();
+			//Debug.Log ("KUOLIT AHAHAH VITTU!");
 		}
 	}
 
@@ -24,16 +25,27 @@ public partial class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		testaus ();
 		DeathCheck ();
 		AmmoCheck ();
 
-		if (Input.GetKeyDown (KeyCode.Alpha1)){LoadFists();Debug.Log("Sullon fistit");}
-		if (Input.GetKeyDown (KeyCode.Alpha2)&&GotHandgun==true){LoadHandgun();Debug.Log("Sullon pisla");}
-		if (Input.GetKeyDown (KeyCode.Alpha3)&&GotTommygun==true){LoadTommygun();Debug.Log("Sullon SKP");}
+
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			LoadFists ();
+			Debug.Log ("Sullon fistit");
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha2) && GotHandgun == true) {
+			LoadHandgun ();
+			Debug.Log ("Sullon pisla");
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha3) && GotTommygun == true) {
+			LoadTommygun ();
+			Debug.Log ("Sullon SKP");
+		}
 
 
 
-		if (Input.GetButtonDown ("Reload")) {
+		if (Input.GetButton ("Reload") || Gun.Mag == 0 && Gun.Reloader < -.1) {
 			float tick = Gun.ReloadTime/98;
 			CancelInvoke("ReloadAnimation");
 			ammoSlider.value = 0;
@@ -49,7 +61,7 @@ public partial class Player : MonoBehaviour {
 
 		
 		
-		}
+	}
 
 	}
 
