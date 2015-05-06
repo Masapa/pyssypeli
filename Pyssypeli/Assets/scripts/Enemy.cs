@@ -8,17 +8,19 @@ public class Enemy : MonoBehaviour {
 	public GameObject Bullet;
 	public int moveSpeed;
 	public int rotationSpeed;
-	private Player health;
 	public LayerMask WhatToHit;
 
+	Rigidbody2D ammus;
+	Weapon ase;
+	Player asd;
+	GameObject pelaaja;
 	Transform Target;
 	Transform _sightEnd;
-	public bool spotted = false;
+	private bool spotted = false;
 	private bool seuraa = false;
 	private bool näkee = false;
 	private bool jahtaa = false;
 	private bool ampuu = false;
-	private bool katsoo = false;
 	private bool palaudu = false;
 	Rigidbody2D tmp;
 
@@ -37,9 +39,11 @@ public class Enemy : MonoBehaviour {
 	{
 		myTransform = transform;
 	}
-	
-	// Use this for initialization
+
 	void Start () {
+		pelaaja = GameObject.Find ("Pelaaja");
+		asd = GetComponent<Player> ();
+		ase = GetComponent<Weapon> ();
 		Bullet = Resources.Load ("Bullet") as GameObject;
 		seuraaas = GetComponentInChildren<detectionienemy>();
 		myTransform = transform;
@@ -50,39 +54,25 @@ public class Enemy : MonoBehaviour {
 		}
 
 		GameObject go = GameObject.FindGameObjectWithTag ("Player");
-		// _sightEnd = sightEnd;
+
 		Target = go.transform;
 		tmp = GetComponent<Rigidbody2D> ();
-		// ymp = Target.GetComponents<CircleCollider2D>;
+
 	}
-	/*
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player") {
-			Debug.Log("Lähellä on jokuuuu");
-			seuraa = true;
-			
-		}
-		
-		
-	}
-	void OnTriggerExit2D(Collider2D other){
-		if (other.tag == "Player") {
-			seuraa = false;
-			Debug.Log("Se meni pois");
-		}
-	}*/
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
 		Reloader -= Time.smoothDeltaTime;
 		
-		if (Reloader < 0 && Reloader >= -.2) {								//tarkistaa millon ase on valmis
+		if (Reloader < 0 && Reloader >= -.2) {		
 			Mag = MaxMag;
 		}
 		
-		if (Mag == 0 && Reloader < -.2) {		//laittaa aseen lataamaan kun painaa "R"
+		if (Mag == 0 && Reloader < -.2) {	
 			Reloader = RTime;
 		}
+
 
 	}
 
@@ -97,13 +87,9 @@ public class Enemy : MonoBehaviour {
 	
 	void Raycasting()
 	{
-		// Debug.DrawLine (sightStart.position, (sightEnd.position-sightStart.position)*50, Color.green);
-		Debug.DrawLine (myTransform.position, Target.position, Color.green);
-		
-		// RaycastHit2D spotted = Physics2D.Raycast (sightStart.position, sightEnd.position-sightStart.position, 15, WhatToHit);
+		Debug.DrawLine (myTransform.position, Target.position, Color.green); 
 		RaycastHit2D spotted = Physics2D.Raycast (myTransform.position, (Target.position - myTransform.position), 12, WhatToHit);
 		if (spotted.collider != null && spotted.collider.name == "Player") {
-			Debug.DrawLine (myTransform.position, spotted.point, Color.red);
 			näkee = true;
 		} 
 		
@@ -114,14 +100,8 @@ public class Enemy : MonoBehaviour {
 
 		if (seuraa == true && näkee == true) {
 			jahtaa = true;
-			katsoo = true;
-			
-			//Debug.Log ("JAHTAA");
 		}
 
-		if (katsoo == true) {
-			Turret ();
-		}
 		if (spotted) {
 			if (spotted.collider.name != "Player") {
 				näkee = false;
@@ -131,7 +111,6 @@ public class Enemy : MonoBehaviour {
 		if (seuraa == false || näkee == false) {
 			jahtaa = false;
 			ampuu = false;
-			//Debug.Log ("EI JAHTAA");
 		}
 
 		if(ampuu == true)
@@ -139,19 +118,26 @@ public class Enemy : MonoBehaviour {
 			Shooting();
 		}
 
+
 		if (jahtaa == true) {
 			Chase ();
+			palaudu = false;
 			ampuu = true;
 		}
 		
 		if (jahtaa == false) {
+			ampuu = false;
+			palaudu = true;
+		}
+
+		if (palaudu == true) {
 			Patrolling ();
 		}
 	}
 	
 	void Patrolling()
 	{
-		palaudu = true;
+
 	}
 	
 	void Chase()
@@ -176,33 +162,35 @@ public class Enemy : MonoBehaviour {
 		}
 		
 	}
-	
-	void Turret()
-	{
-			Vector3 dir = Target.position - myTransform.position; 
-			float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
-			
-			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward); 
-			myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
-			
-			//Shooting ();
-	
-	}
+
 	
 	void Shooting()
 	{
-		Debug.Log("AMPUUUU phase1");
-	if (Time.time > TimeToFire && Mag > 0 && Reloader < -.2) {
-		Debug.Log("AMPUUUU phase2");
+		if (Time.time > TimeToFire && Mag > 0 && Reloader < -.2) {
 		TimeToFire = Time.time + 1 / Frate;
 		Shoot();
 		Mag--;
 		}
+			
 	}
+	
+	
 
 	void Shoot()
 	{
-
 		Instantiate (Bullet, aseenkarkii.position, (myTransform.rotation * Quaternion.Euler(0,0,-90)));
+
+	}	
+
+
+	/*void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.tag == "Bullet") {
+			col.SendMessage("ApplyDamage", ase.Damage, SendMessageOptions.DontRequireReceiver);
+			Debug.Log("AUTS!");
+		}
+
 	}
+	 hit.collider.SendMessageUpwards("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
+*/
 }
