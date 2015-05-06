@@ -70,13 +70,13 @@ public partial class Player : MonoBehaviour {
 		damaged = false;
 	}
 
-	public void TakeDamage ()
+	public void TakeDamage (int d)
 	{
 		// Set the damaged flag so the screen will flash.
 		damaged = true;
 
 		// Reduce the current health by the damage amount.
-		health -= Gun.Damage;
+		health -= d;
 		
 		// Set the health bar's value to the current health.
 		healthSlider.value = health;

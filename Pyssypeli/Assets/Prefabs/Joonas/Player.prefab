@@ -238,10 +238,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 162870, guid: 86e7881d003a2c143ad2427f172bc1c8, type: 2}
-  fireRate: 0
-  Magazine: 20
-  RTime: 2
+  ReloadTime: 0
+  FireRate: 0
+  Delay: 0
+  MaxMag: 0
+  MemMag: 0
   Mag: 0
+  Amount: 0
+  Damage: 0
+  Speed: 0
+  Siivous: 0
+  Reloader: 0
 --- !u!114 &11437256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,17 +287,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2286702cdac77e745a7e1f71a7c391c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  flashSpeed: 5
   startingHealth: 100
   health: 0
-  healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
-  flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: .100000001}
   resetAfterDeathTime: 5
-  StartingAmmo: 12
-  CurrentAmmo: 0
+  GotHandgun: 1
+  GotTommygun: 1
+  GotGatlinggun: 0
+  GotFlamethrower: 0
+  GotRifle: 0
+  GotBoomstick: 0
+  Blet: {fileID: 0}
+  ammoSlider: {fileID: 0}
   currentAmmo: {fileID: 0}
-  startingAmmo: {fileID: 0}
+  maxAmmo: {fileID: 0}
 --- !u!212 &21213024
 SpriteRenderer:
   m_ObjectHideFlags: 1
