@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Kamera : MonoBehaviour {
 
-	public Transform target;
-	public Transform player;
+	Transform target;
+	Transform player;
 	//public float dampTime = 0.1f;
 	public float smoothTime;
 	public float smoothTimex;
@@ -14,6 +14,8 @@ public class Kamera : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		player = target;
 		tmp = 0;
 		if (smoothTime == 0) {
 			smoothTime = 0.6f;

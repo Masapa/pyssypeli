@@ -2,123 +2,207 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-	public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
-	public float chaseSpeed = 5f;                           // The nav mesh agent's speed when chasing.
-	public float chaseWaitTime = 5f;                        // The amount of time to wait when the last sighting is reached.
-	public float patrolWaitTime = 1f;                       // The amount of time to wait when the patrol way point is reached.
-	public Transform[] patrolWayPoints;                     // An array of transforms for the patrol route.
-	
-	
-	private EnemySight enemySight;                          // Reference to the EnemySight script.
-	private NavMeshAgent nav;                               // Reference to the nav mesh agent.
-	private Transform player;                               // Reference to the player's transform.
-	private PlayerHealth playerHealth;                      // Reference to the PlayerHealth script.
-	private LastPlayerSighting lastPlayerSighting;          // Reference to the last global sighting of the player.
-	private float chaseTimer;                               // A timer for the chaseWaitTime.
-	private float patrolTimer;                              // A timer for the patrolWaitTime.
-	private int wayPointIndex;                              // A counter for the way point array.
-	
-	
-	void Awake ()
+
+	public Transform patrolDest;
+	private Transform myTransform;
+	public GameObject Bullet;
+	public int moveSpeed;
+	public int rotationSpeed;
+	private Player health;
+	public LayerMask WhatToHit;
+
+	Transform Target;
+	Transform _sightEnd;
+	public bool spotted = false;
+	private bool seuraa = false;
+	private bool näkee = false;
+	private bool jahtaa = false;
+	private bool ampuu = false;
+	private bool katsoo = false;
+	private bool palaudu = false;
+	Rigidbody2D tmp;
+
+	int MaxMag = 12;
+	int Mag = 12;
+
+	float Frate = 2;
+	float RTime = 2;
+	float Reloader = 0;
+	float TimeToFire = 0;
+	bool seuraas = false;
+	detectionienemy seuraaas;
+	GameObject aseenkärki;
+	Transform aseenkarkii;
+	void Awake()
 	{
-		// Setting up the references.
-		enemySight = GetComponent<EnemySight>();
-		nav = GetComponent<NavMeshAgent>();
-		player = GameObject.FindGameObjectWithTag(Tags.player).transform;
-		playerHealth = player.GetComponent<PlayerHealth>();
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
+		myTransform = transform;
 	}
 	
-	
-	void Update ()
+	// Use this for initialization
+	void Start () {
+		Bullet = Resources.Load ("Bullet") as GameObject;
+		seuraaas = GetComponentInChildren<detectionienemy>();
+		myTransform = transform;
+		Transform[] ts = transform.GetComponentsInChildren<Transform>();
+		foreach (Transform t in ts) {
+			if(t.gameObject.name == "Piippu"){aseenkarkii = t;}
+		
+		}
+
+		GameObject go = GameObject.FindGameObjectWithTag ("Player");
+		// _sightEnd = sightEnd;
+		Target = go.transform;
+		tmp = GetComponent<Rigidbody2D> ();
+		// ymp = Target.GetComponents<CircleCollider2D>;
+	}
+	/*
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Player") {
+			Debug.Log("Lähellä on jokuuuu");
+			seuraa = true;
+			
+		}
+		
+		
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if (other.tag == "Player") {
+			seuraa = false;
+			Debug.Log("Se meni pois");
+		}
+	}*/
+	// Update is called once per frame
+	void FixedUpdate () {
+
+		Reloader -= Time.smoothDeltaTime;
+		
+		if (Reloader < 0 && Reloader >= -.2) {								//tarkistaa millon ase on valmis
+			Mag = MaxMag;
+		}
+		
+		if (Mag == 0 && Reloader < -.2) {		//laittaa aseen lataamaan kun painaa "R"
+			Reloader = RTime;
+		}
+
+	}
+
+
+	void Update()
 	{
-		// If the player is in sight and is alive...
-		if(enemySight.playerInSight && playerHealth.health > 0f)
-			// ... shoot.
+		seuraas = seuraaas.tila;
+		seuraa = seuraas;
+		Raycasting ();
+		
+	}
+	
+	void Raycasting()
+	{
+		// Debug.DrawLine (sightStart.position, (sightEnd.position-sightStart.position)*50, Color.green);
+		Debug.DrawLine (myTransform.position, Target.position, Color.green);
+		
+		// RaycastHit2D spotted = Physics2D.Raycast (sightStart.position, sightEnd.position-sightStart.position, 15, WhatToHit);
+		RaycastHit2D spotted = Physics2D.Raycast (myTransform.position, (Target.position - myTransform.position), 12, WhatToHit);
+		if (spotted.collider != null && spotted.collider.name == "Player") {
+			Debug.DrawLine (myTransform.position, spotted.point, Color.red);
+			näkee = true;
+		} 
+		
+		
+		if (näkee == true) {
+			seuraa = true;
+		}
+
+		if (seuraa == true && näkee == true) {
+			jahtaa = true;
+			katsoo = true;
+			
+			//Debug.Log ("JAHTAA");
+		}
+
+		if (katsoo == true) {
+			Turret ();
+		}
+		if (spotted) {
+			if (spotted.collider.name != "Player") {
+				näkee = false;
+			}
+		}
+		
+		if (seuraa == false || näkee == false) {
+			jahtaa = false;
+			ampuu = false;
+			//Debug.Log ("EI JAHTAA");
+		}
+
+		if(ampuu == true)
+		{
 			Shooting();
-		
-		// If the player has been sighted and isn't dead...
-		else if(enemySight.personalLastSighting != lastPlayerSighting.resetPosition && playerHealth.health > 0f)
-			// ... chase.
-			Chasing();
-		
-		// Otherwise...
-		else
-			// ... patrol.
-			Patrolling();
-	}
-	
-	
-	void Shooting ()
-	{
-		// Stop the enemy where it is.
-		nav.Stop();
-	}
-	
-	
-	void Chasing ()
-	{
-		// Create a vector from the enemy to the last sighting of the player.
-		Vector3 sightingDeltaPos = enemySight.personalLastSighting - transform.position;
-		
-		// If the the last personal sighting of the player is not close...
-		if(sightingDeltaPos.sqrMagnitude > 4f)
-			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
-			nav.destination = enemySight.personalLastSighting;
-		
-		// Set the appropriate speed for the NavMeshAgent.
-		nav.speed = chaseSpeed;
-		
-		// If near the last personal sighting...
-		if(nav.remainingDistance < nav.stoppingDistance)
-		{
-			// ... increment the timer.
-			chaseTimer += Time.deltaTime;
-			
-			// If the timer exceeds the wait time...
-			if(chaseTimer >= chaseWaitTime)
-			{
-				// ... reset last global sighting, the last personal sighting and the timer.
-				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
-				enemySight.personalLastSighting = lastPlayerSighting.resetPosition;
-				chaseTimer = 0f;
-			}
 		}
-		else
-			// If not near the last sighting personal sighting of the player, reset the timer.
-			chaseTimer = 0f;
+
+		if (jahtaa == true) {
+			Chase ();
+			ampuu = true;
+		}
+		
+		if (jahtaa == false) {
+			Patrolling ();
+		}
 	}
 	
-	
-	void Patrolling ()
+	void Patrolling()
 	{
-		// Set an appropriate speed for the NavMeshAgent.
-		nav.speed = patrolSpeed;
+		palaudu = true;
+	}
+	
+	void Chase()
+	{
+		Vector3 dir = Target.position - myTransform.position; 
+		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
 		
-		// If near the next waypoint or there is no destination...
-		if(nav.destination == lastPlayerSighting.resetPosition || nav.remainingDistance < nav.stoppingDistance)
-		{
-			// ... increment the timer.
-			patrolTimer += Time.deltaTime;
-			
-			// If the timer exceeds the wait time...
-			if(patrolTimer >= patrolWaitTime)
-			{
-				// ... increment the wayPointIndex.
-				if(wayPointIndex == patrolWayPoints.Length - 1)
-					wayPointIndex = 0;
-				else
-					wayPointIndex++;
-				
-				// Reset the timer.
-				patrolTimer = 0;
-			}
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward); 
+		myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
+		
+		
+		if (Vector3.Distance (Target.position, myTransform.position) > (10 + 1f)) {
+			tmp.velocity = tmp.transform.rotation * Vector2.right * moveSpeed;
+		} 
+		
+		else if (Vector3.Distance (Target.position, myTransform.position) < (10 - 1f)) {
+			tmp.velocity = tmp.transform.rotation * -Vector2.right * moveSpeed * 0.75f;
 		}
-		else
-			// If not near a destination, reset the timer.
-			patrolTimer = 0;
 		
-		// Set the destination to the patrolWayPoint.
-		nav.destination = patrolWayPoints[wayPointIndex].position;
+		else {
+			tmp.velocity = Vector2.zero;
+		}
+		
+	}
+	
+	void Turret()
+	{
+			Vector3 dir = Target.position - myTransform.position; 
+			float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg; 
+			
+			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward); 
+			myTransform.rotation = Quaternion.Slerp(myTransform.rotation, q, Time.deltaTime * rotationSpeed);
+			
+			//Shooting ();
+	
+	}
+	
+	void Shooting()
+	{
+		Debug.Log("AMPUUUU phase1");
+	if (Time.time > TimeToFire && Mag > 0 && Reloader < -.2) {
+		Debug.Log("AMPUUUU phase2");
+		TimeToFire = Time.time + 1 / Frate;
+		Shoot();
+		Mag--;
+		}
+	}
+
+	void Shoot()
+	{
+
+		Instantiate (Bullet, aseenkarkii.position, (myTransform.rotation * Quaternion.Euler(0,0,-90)));
 	}
 }
