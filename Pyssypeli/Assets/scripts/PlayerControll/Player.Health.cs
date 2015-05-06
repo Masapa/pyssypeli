@@ -74,7 +74,7 @@ public partial class Player : MonoBehaviour {
 	{
 		// Set the damaged flag so the screen will flash.
 		damaged = true;
-
+		Debug.Log ("asd");
 		// Reduce the current health by the damage amount.
 		health -= d;
 		

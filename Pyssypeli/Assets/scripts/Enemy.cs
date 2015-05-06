@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
 	private bool ampuu = false;
 	private bool palaudu = false;
 	Rigidbody2D tmp;
-
+	public int Health = 100;
 	int MaxMag = 12;
 	int Mag = 12;
 
@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Start () {
+
 		pelaaja = GameObject.Find ("Pelaaja");
 		asd = GetComponent<Player> ();
 		ase = GetComponent<Weapon> ();
@@ -60,6 +61,20 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	public void TakeDamage (int d)
+	{
+		// Set the damaged flag so the screen will flash.
+
+		Debug.Log ("asd1");
+		// Reduce the current health by the damage amount.
+		Health -= d;
+		
+		// Set the health bar's value to the current health.
+	
+		
+		//damaged = false;
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
@@ -76,12 +91,22 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	void tarkistaKuolema(){
+
+		if (Health <= 0) {
+			Destroy(gameObject);
+		
+		}
+
+	}
+
 
 	void Update()
 	{
 		seuraas = seuraaas.tila;
 		seuraa = seuraas;
 		Raycasting ();
+		tarkistaKuolema ();
 		
 	}
 	
