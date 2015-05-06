@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour {
 
 	float Frate;
 	float RTime;
-	float Reloader = 0;
+	public float Reloader = 0;
 	float TimeToFire = 0;
 	Transform firePoint;
 

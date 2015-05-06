@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public partial class Player : MonoBehaviour {
+	
 
 	void Awake(){
 		StartLife ();
@@ -11,6 +12,7 @@ public partial class Player : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" || other.tag == "Bullet") {
+			TakeDamage();
 			Debug.Log ("KUOLIT AHAHAH VITTU!");
 		}
 	}
@@ -33,7 +35,7 @@ public partial class Player : MonoBehaviour {
 
 
 
-		if (Input.GetButtonDown ("Reload")) {
+		if (Input.GetButton ("Reload") || Gun.Mag == 0 && Gun.Reloader < -.1) {
 			float tick = Gun.ReloadTime/98;
 			CancelInvoke("ReloadAnimation");
 			ammoSlider.value = 0;
